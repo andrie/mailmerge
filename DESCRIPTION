@@ -1,0 +1,38 @@
+Package: mailmerge
+Title: Mail Merge Using R Markdown Documents and 'gmailr`
+Description: Mail merge using markdown documents and gmail. With this package
+    you can parsing markdown documents as the body of email, and the `yaml` header 
+    to specify the subject line of the email.  Any `{}` tags in the email will be 
+    replaced with `glue`. You can preview the email in the RStudio viewer pane, and
+    send (draft) email using `gmailr`.
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Andrie",
+           family = "de Vries",
+           role = c("aut", "cre"),
+           email = "apdevries@gmail.com")
+License: MIT + file LICENSE
+Imports: 
+    commonmark,
+    gmailr,
+    rstudioapi,
+    googledrive,
+    rmarkdown,
+    dplyr,
+    glue,
+    googlesheets4,
+    lubridate,
+    magrittr,
+    withr,
+    purrr,
+    utils
+Suggests: 
+    covr,
+    knitr,
+    testthat
+VignetteBuilder: 
+    rmarkdown
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
