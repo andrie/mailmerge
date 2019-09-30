@@ -15,17 +15,12 @@ Mail merge using markdown documents and gmail.
   - Preview the email in the RStudio viewer pane
   - Sending (draft) email using `gmailr`
 
-## Example scripts
-
-See the `scripts` folder
-
 ## Installation
 
-This package is only available from the private repository at
-<http://github.com/rstudio/rstmanage>
+This package is only available from <http://github.com/andrie/mailmerge>
 
 ``` r
-remotes::install_github("rstudio/rstmanage")
+remotes::install_github("andrie/mailmerge")
 ```
 
 ## Example
