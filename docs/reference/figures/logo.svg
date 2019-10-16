@@ -17,8 +17,8 @@
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="logo.svg"
    inkscape:export-filename="C:\Users\apdev\Documents\github\rst-training\mailmerge\mailmerge\man\figures\logo.png"
-   inkscape:export-xdpi="23.151655"
-   inkscape:export-ydpi="23.151655">
+   inkscape:export-xdpi="46.16"
+   inkscape:export-ydpi="46.16">
   <defs
      id="defs2">
     <marker
@@ -244,8 +244,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.76435188"
-     inkscape:cx="147.47254"
-     inkscape:cy="270.55864"
+     inkscape:cx="285.49708"
+     inkscape:cy="286.84846"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -296,7 +296,7 @@
        id="path858"
        d="m 94.020121,121.15506 c -1.719983,0 -3.439977,-1.61286 -4.299978,-2.30408 -4.29999,-3.22572 -5.589978,-4.37776 -6.449978,-5.06899 v 9.67717 c 0,1.27229 0.962786,2.30408 2.149988,2.30408 h 17.199957 c 1.1872,0 2.14999,-1.03179 2.14999,-2.30408 v -9.67717 c -0.86001,0.69123 -2.14999,1.84327 -6.449991,5.06899 -0.859987,0.69122 -2.579983,2.30408 -4.299988,2.30408 z m 8.599989,-13.82449 H 85.420153 c -1.187202,0 -2.149988,1.03179 -2.149988,2.30409 v 1.15203 c 1.719992,1.38245 1.505,1.38245 7.739975,6.22103 0.644999,0.46081 1.934987,1.84326 3.009981,1.84326 1.075006,0 2.365003,-1.38245 3.010003,-1.61285 6.234986,-4.83858 6.019976,-4.83858 7.739976,-6.22103 v -1.38244 c 0,-1.2723 -0.96279,-2.30409 -2.14999,-2.30409 z m 17.19993,-6.91224 H 98.320109 c -1.187198,0 -2.149989,1.03178 -2.149989,2.30407 v 2.30408 h 6.44999 c 2.23128,0 4.07087,1.83032 4.2805,4.1632 l 0.0195,-0.0159 v 9.67714 h 12.89994 c 1.18721,0 2.15,-1.03179 2.15,-2.30408 v -13.8245 c 0,-1.27228 -0.96279,-2.30408 -2.15,-2.30408 z m -2.14999,9.21633 h -4.29999 v -4.60818 h 4.29999 z M 94.020121,102.7224 c 0,-2.54097 1.928949,-4.608158 4.299988,-4.608158 h 15.049951 v -6.912241 c 0,-1.272281 -0.96278,-2.304078 -2.14999,-2.304078 H 89.720143 c -1.187202,0 -2.14999,1.031797 -2.14999,2.304078 v 13.824479 h 6.449968 z"
        inkscape:connector-curvature="0"
-       style="fill:#ff7f2a;stroke:#803300;stroke-width:0.279;stroke-miterlimit:4;stroke-dasharray:none" />
+       style="fill:#ff7f2a;stroke:#803300;stroke-width:0.27900001;stroke-miterlimit:4;stroke-dasharray:none" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot929"
@@ -313,7 +313,7 @@
          id="flowPara927"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;letter-spacing:3.06000042px;text-anchor:middle;fill:#ff6600;fill-opacity:1;stroke:#2b1100">mailmerge</flowPara></flowRoot>    <g
        aria-label="mailmerge"
-       transform="matrix(0.26458333,0,0,0.26458333,258.2783,139.42869)"
+       transform="matrix(0.26458333,0,0,0.26458333,258.2783,137.84118)"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;word-spacing:0px;fill:#501616;fill-opacity:1;stroke:#501616"
        id="flowRoot6353">
       <path
@@ -374,7 +374,7 @@
        style="fill:#ff9955;stroke:#2b1100;stroke-width:0.05702623" />
     <path
        style="fill:none;stroke:#ff9955;stroke-width:5.30900002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 158.68429,163.26295 c -5.71153,0.17308 -19.52545,0.54853 -37.7241,-2.2882 -18.19863,-2.83674 -18.62815,-8.19335 -18.34009,-20.86901"
+       d="m 158.68429,165.37963 c -5.71153,0.17308 -19.52545,0.54853 -37.7241,-2.2882 -18.19863,-2.83674 -18.62815,-8.19335 -18.34009,-20.86901"
        id="path5739"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="csc" />
@@ -382,13 +382,20 @@
        sodipodi:nodetypes="csc"
        inkscape:connector-curvature="0"
        id="path3673"
-       d="m 46.555927,163.26295 c 5.71153,0.17308 19.525456,0.54853 37.724099,-2.2882 18.198634,-2.83674 18.628144,-8.19335 18.340074,-20.86901"
+       d="m 46.555927,165.37963 c 5.71153,0.17308 19.525456,0.54853 37.724099,-2.2882 18.198634,-2.83674 18.628144,-8.19335 18.340074,-20.86901"
        style="fill:none;stroke:#803300;stroke-width:5.30900002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <path
-       style="fill:#aa4400;stroke:#803300;stroke-width:2.154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
-       d="m 102.58927,127.50636 -0.0777,-5.04561"
-       id="path882"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
+    <g
+       id="g6955">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.15400004;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 103.58789,122.44336 -2.15234,0.0332 0.0762,5.04688 2.1543,-0.0332 z"
+         id="path882"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 93.309737,145.63241 9.119853,-26.03129 9.91707,25.73813 c -5.68338,-4.04875 -13.371729,-3.90652 -19.036923,0.29316 z"
+         style="fill:#aa4400;fill-opacity:1;fill-rule:evenodd;stroke:#803300;stroke-width:1.48087502;stroke-linejoin:round;stroke-opacity:1"
+         id="path6961"
+         inkscape:connector-curvature="0" />
+    </g>
   </g>
 </svg>

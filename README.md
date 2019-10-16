@@ -9,7 +9,7 @@
 
 Mail merge from R using markdown documents and gmail.
 
-  - Parsing markdown documents as the body of email
+  - Parse markdown documents as the body of email
   - Using the `yaml` header to specify the subject line of the email
   - Using `glue` to replace `{}` tags
   - Preview the email in the RStudio viewer pane
