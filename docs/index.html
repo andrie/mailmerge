@@ -58,7 +58,14 @@
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/andrie/mailmerge">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -76,7 +83,7 @@
 </h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>Mail merge using markdown documents and gmail.</p>
+<p>Mail merge from R using markdown documents and gmail.</p>
 <ul>
 <li>Parsing markdown documents as the body of email</li>
 <li>Using the <code>yaml</code> header to specify the subject line of the email</li>
@@ -94,13 +101,53 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>To be completed.</p>
+<p>Construct a data frame with the content you want to merge into your email:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">dat =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span>(<span class="dt">text =</span> <span class="st">'</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="st">first_name,  thing</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="st">friend, something good</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="st">foe, something bad</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="st">'</span>)</a></code></pre></div>
+<p>Write the text of your email as a R markdown document. You can add the subject line in the yaml header. Use <code>{}</code> braces inside the email to refer to the data inside your data frame. Expressions inside these braces will be encoded by the <code><a href="https://rdrr.io/pkg/glue/man/glue.html">glue::glue()</a></code> function (See <a href="https://glue.tidyverse.org/" class="uri">https://glue.tidyverse.org/</a>).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode md"><code class="sourceCode markdown"><a class="sourceLine" id="cb3-1" title="1">---</a>
+<a class="sourceLine" id="cb3-2" title="2">subject: Your subject line</a>
+<a class="sourceLine" id="cb3-3" title="3">---</a>
+<a class="sourceLine" id="cb3-4" title="4">Hi, {first_name}</a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6">I am writing to tell you about {thing}.</a>
+<a class="sourceLine" id="cb3-7" title="7"></a>
+<a class="sourceLine" id="cb3-8" title="8">HTH</a>
+<a class="sourceLine" id="cb3-9" title="9"></a>
+<a class="sourceLine" id="cb3-10" title="10">Me</a></code></pre></div>
+<p>Then you can use <code>mail_merge()</code> to embed the content of your data frame into the email message. Right now, the only supported email backend is <code>gmailr</code> (see <a href="https://gmailr.r-lib.org/" class="uri">https://gmailr.r-lib.org/</a>).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(mailmerge)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gmailr)</a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4"></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="co"># configure auth ----------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="kw">gm_auth</span>(<span class="dt">email =</span> <span class="st">"me@example.com"</span>)</a>
+<a class="sourceLine" id="cb4-8" title="8"></a>
+<a class="sourceLine" id="cb4-9" title="9"></a>
+<a class="sourceLine" id="cb4-10" title="10">txt =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/readLines.html">readLines</a></span>(<span class="st">"path/to/message.Rmd"</span>)</a>
+<a class="sourceLine" id="cb4-11" title="11">msg =<span class="st"> </span><span class="kw">mm_parse_email</span>(txt)</a>
+<a class="sourceLine" id="cb4-12" title="12"></a>
+<a class="sourceLine" id="cb4-13" title="13">dat <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="st">  </span><span class="kw">mail_merge</span>(msg)</a></code></pre></div>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div class="license">
+    <div class="links">
+<h2>Links</h2>
+<ul class="list-unstyled">
+<li>Browse source code at <br><a href="https://github.com/andrie/mailmerge">https://​github.com/​andrie/​mailmerge</a>
+</li>
+<li>Report a bug at <br><a href="https://github.com/andrie/mailmerge/issues">https://​github.com/​andrie/​mailmerge/​issues</a>
+</li>
+</ul>
+</div>
+<div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
