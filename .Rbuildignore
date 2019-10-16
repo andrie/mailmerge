@@ -6,3 +6,4 @@ scripts/*
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^logo\.svg$
