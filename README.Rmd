@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-Mail merge using markdown documents and gmail.
+Mail merge from R using markdown documents and gmail.
 
 * Parsing markdown documents as the body of email
 * Using the `yaml` header to specify the subject line of the email
@@ -38,4 +38,50 @@ remotes::install_github("andrie/mailmerge")
 
 ## Example
 
-To be completed.
+Construct a data frame with the content you want to merge into your email:
+
+```r
+dat = read.csv(text = '
+first_name,  thing
+friend, something good
+foe, something bad
+')
+```
+
+Write the text of your email as a R markdown document. You can add the subject line in the yaml header.  Use `{}` braces inside the email to refer to the data inside your data frame.  Expressions inside these braces will be encoded by the `glue::glue()` function (See https://glue.tidyverse.org/).
+
+```md
+---
+subject: Your subject line
+---
+Hi, {first_name}
+
+I am writing to tell you about {thing}.
+
+HTH
+
+Me
+
+```
+
+
+Then you can use `mail_merge()` to embed the content of your data frame into the email message.  Right now, the only supported email backend is `gmailr` (see https://gmailr.r-lib.org/).
+
+
+```r
+library(mailmerge)
+library(gmailr)
+
+
+# configure auth ----------------------------------------------------------
+
+gm_auth(email = "me@example.com")
+
+
+txt = readLines("path/to/message.Rmd")
+msg = mm_parse_email(txt)
+
+dat %>% 
+  mail_merge(msg)
+
+```
