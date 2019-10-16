@@ -15,6 +15,9 @@ Mail merge from R using markdown documents and gmail.
   - Preview the email in the RStudio viewer pane
   - Sending (draft) email using `gmailr`
 
+Note: Right now, the only supported email backend is `gmailr` (see
+<https://gmailr.r-lib.org/>).
+
 ## Installation
 
 This package is only available from <http://github.com/andrie/mailmerge>
@@ -56,8 +59,7 @@ Me
 ```
 
 Then you can use `mail_merge()` to embed the content of your data frame
-into the email message. Right now, the only supported email backend is
-`gmailr` (see <https://gmailr.r-lib.org/>).
+into the email message.
 
 ``` r
 library(mailmerge)
