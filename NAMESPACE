@@ -2,7 +2,7 @@
 
 export("%>%")
 export(in_viewer)
-export(mm_mail_merge)
+export(mail_merge)
 export(mm_parse_email_from_googledoc)
 export(mm_preview_mail)
 export(mm_send_draft)

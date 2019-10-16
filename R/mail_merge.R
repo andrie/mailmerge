@@ -14,11 +14,11 @@
 #'   preview
 #'
 #' @param message A list with components `yaml` and `body`.  See
-#'   [parse_email_from_googledoc()]
+#'   [mm_parse_email_from_googledoc()]
 #'
 #' @export
 #' @importFrom purrr map pmap
-mm_mail_merge <- function(delegates, message, preview = TRUE, draft = TRUE, sleep = 1) {
+mail_merge <- function(delegates, message, preview = TRUE, draft = TRUE, sleep = 1) {
   if(nrow(delegates) == 0) stop("nothing to email")
   if(!preview) {
     yesno("Send ", nrow(delegates), " emails?")

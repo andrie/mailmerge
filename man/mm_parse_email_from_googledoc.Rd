@@ -2,13 +2,16 @@
 % Please edit documentation in R/googledocs.R
 \name{mm_parse_email_from_googledoc}
 \alias{mm_parse_email_from_googledoc}
-\title{Parse the email inside a markdown document on google drive}
+\title{Parse the email template inside a markdown document on google drive.}
 \usage{
 mm_parse_email_from_googledoc(id)
 }
 \arguments{
 \item{id}{Unique Google Drive identifier}
 }
+\value{
+A list with components \code{yaml} and \code{body}
+}
 \description{
-Parse the email inside a markdown document on google drive
+Parse the email template inside a markdown document on google drive.
 }

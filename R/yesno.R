@@ -6,6 +6,8 @@
 #'
 #' @return logical value
 #' @importFrom utils menu
+#' 
+#' @keywords internal
 #'
 yesno <- function (...) {
   yeses <- c("Yes", "Definitely", "For sure", 

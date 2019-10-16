@@ -1,0 +1,26 @@
+destination: docs
+
+reference:
+- title: "Send mail"
+  desc: >
+    Send email
+  contents: 
+    - mail_merge
+    - mm_send_mail
+    - mm_send_draft
+      
+- title: "Preview email"
+  desc: >
+    Preview email in the RStudio viewer pane
+  contents: 
+    - in_viewer
+    - matches("preview")
+
+- title: "Internal functions"
+  desc: >
+    Mail preparation
+  contents: 
+    - starts_with("mm_")
+    - -starts_with("mm_send")
+    - -starts_with("mm_preview")
+

@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 
 
-# mailmerge
+# mailmerge <img src='man/figures/logo.svg' align="right" height="139" />
 
 <!-- badges: start -->
 <!-- badges: end -->

@@ -17,20 +17,23 @@ download_googledoc <- function(id, file){
   url <- glue::glue("https://drive.google.com/open?id={id}")
   template <- NA
   if (missing(file) || is.null(file)) {
-    file <- tempfile(fileext = ".Rmd")
+    file <- tempfile(fileext = ".txt")
   }
+  # browser()
   googledrive::drive_download(path = file, file = url, verbose = FALSE)
   invisible(file)
 }
 
 
 
-#' Parse the email inside a markdown document on google drive
+#' Parse the email template inside a markdown document on google drive.
 #'
 #'
 #' @inheritParams read_googledoc
+#' @inherit mm_parse_email
 #'
 #' @export
+#' 
 #'
 mm_parse_email_from_googledoc <- function(id) {
   txt <- read_googledoc(id = id)

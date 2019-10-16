@@ -3,3 +3,6 @@
 ^README\.Rmd$
 ^LICENSE\.md$
 scripts/*
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

@@ -15,3 +15,4 @@ logical value
 \description{
 Copied from \code{devtools:::yesno}
 }
+\keyword{internal}
