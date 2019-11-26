@@ -20,6 +20,7 @@
 #' @importFrom purrr map pmap
 mail_merge <- function(delegates, message, preview = TRUE, draft = TRUE, sleep = 1) {
   if(nrow(delegates) == 0) stop("nothing to email")
+  if(is.null(delegates[["email"]])) stop("delegates must contain an email column")
   if(!preview) {
     yesno("Send ", nrow(delegates), " emails?")
   }
