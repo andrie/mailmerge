@@ -19,7 +19,6 @@ download_googledoc <- function(id, file){
   if (missing(file) || is.null(file)) {
     file <- tempfile(fileext = ".txt")
   }
-  # browser()
   googledrive::drive_download(path = file, file = url, verbose = FALSE)
   invisible(file)
 }

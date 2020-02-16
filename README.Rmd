@@ -44,9 +44,9 @@ Construct a data frame with the content you want to merge into your email:
 
 ```r
 dat = read.csv(text = '
-first_name,  thing
-friend, something good
-foe, something bad
+  first_name,  thing
+  friend, something good
+  foe, something bad
 ')
 ```
 

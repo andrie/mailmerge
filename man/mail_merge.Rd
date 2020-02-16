@@ -4,11 +4,17 @@
 \alias{mail_merge}
 \title{Send course email.}
 \usage{
-mail_merge(delegates, message, preview = TRUE, draft = TRUE,
-  sleep = 1)
+mail_merge(
+  data,
+  message,
+  preview = TRUE,
+  draft = TRUE,
+  sleep_preview = 1,
+  sleep_send = 0.1
+)
 }
 \arguments{
-\item{delegates}{A \code{tibble} with all the columns that should be glued into
+\item{data}{A \code{tibble} with all the columns that should be glued into
 the message}
 
 \item{message}{A list with components \code{yaml} and \code{body}.  See
@@ -18,8 +24,11 @@ the message}
 
 \item{draft}{if \code{TRUE} sends a draft, otherwise sends the real email}
 
-\item{sleep}{If \code{draft == TRUE} the number of seconds to sleep between each
+\item{sleep_preview}{If \code{draft == TRUE} the number of seconds to sleep between each
 preview}
+
+\item{sleep_send}{If \code{draft == FALSE} the number of seconds to sleep between
+each email send (to prevent gmail API 500 errors)}
 }
 \description{
 Send course email.

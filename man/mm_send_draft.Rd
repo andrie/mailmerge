@@ -4,14 +4,16 @@
 \alias{mm_send_draft}
 \title{Send draft email.}
 \usage{
-mm_send_draft(delegate, body, subject, draft = TRUE)
+mm_send_draft(to, body, subject, cc = NULL, draft = TRUE)
 }
 \arguments{
-\item{delegate}{A data frame with one row, containing information about the student.}
+\item{to}{A data frame with one row, containing information about the student.}
 
 \item{body}{The email message, in markdown format.}
 
-\item{subject}{Subject line}
+\item{subject}{The email subject.}
+
+\item{cc}{The email cc.}
 
 \item{draft}{if \code{TRUE} sends a draft, otherwise sends the real email}
 }

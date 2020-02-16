@@ -5,43 +5,56 @@
 #' @inheritParams mm_send_mail
 #'
 #'
-#' @param delegates A `tibble` with all the columns that should be glued into
+#' @param data A `tibble` with all the columns that should be glued into
 #'   the message
 #'
 #' @param preview If `TRUE` displays message in viewer without sending mail
 #'
-#' @param sleep If `draft == TRUE` the number of seconds to sleep between each
+#' @param sleep_preview If `draft == TRUE` the number of seconds to sleep between each
 #'   preview
+#'   
+#' @param sleep_send If `draft == FALSE` the number of seconds to sleep between
+#'   each email send (to prevent gmail API 500 errors)
 #'
 #' @param message A list with components `yaml` and `body`.  See
 #'   [mm_parse_email_from_googledoc()]
 #'
 #' @export
 #' @importFrom purrr map pmap
-mail_merge <- function(delegates, message, preview = TRUE, draft = TRUE, sleep = 1) {
-  if(nrow(delegates) == 0) stop("nothing to email")
-  if(is.null(delegates[["email"]])) stop("delegates must contain an email column")
+mail_merge <- function(data, message, preview = TRUE, draft = TRUE, 
+                       sleep_preview = 1, sleep_send = 0.1) {
+  if(nrow(data) == 0) {
+    warning("nothing to email")
+    return(invisible(data))
+  }
+  if(is.null(data[["email"]])) stop("data must contain an email column")
   if(!preview) {
-    yesno("Send ", nrow(delegates), " emails?")
+    yesno("Send ", nrow(data), " emails?")
   }
   
-  z <- delegates %>%
+  z <-data%>%
     purrr::pmap(list) %>%
-    purrr::map(function(x){
-      msg <- x %>%
-        mm_preview_mail(message$body)
+    purrr::map(function(delegate) {
+      
+      to         <- delegate[["email"]]
+      glued_data <- glue_mail(delegate, message)
+      body       <- glued_data$body
+      subject    <- glued_data$subject
+      cc         <- glued_data$cc
+      
+      
       if (preview) {
-        msg %>%
-          in_viewer()
-        Sys.sleep(sleep)
+        msg <- 
+          mm_preview_mail(to = to, body = body, subject = subject, cc = cc)
+        in_viewer(msg)
+        Sys.sleep(sleep_preview)
       } else {
         if (draft) {
-          msg %>%
-            mm_send_draft(delegate = x, subject = message$yaml$subject)
+          mm_send_draft(to = to, body = body, subject = subject, cc = cc, draft = TRUE)
         } else {
-        msg %>%
-          mm_send_mail(delegate = x, subject = message$yaml$subject)
+          mm_send_mail(to = to, body = body, subject = subject, cc = cc, draft = FALSE)
         }
+        Sys.sleep(sleep_send)
       }
     })
   
@@ -56,7 +69,7 @@ mail_merge <- function(delegates, message, preview = TRUE, draft = TRUE, sleep =
     base::message("Sent ", n_messages, " messages to email")
     }
   }
-  invisible(NULL)
+  invisible(data)
 }
 
 

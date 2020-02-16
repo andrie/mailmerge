@@ -33,9 +33,9 @@ email:
 
 ``` r
 dat = read.csv(text = '
-first_name,  thing
-friend, something good
-foe, something bad
+  first_name,  thing
+  friend, something good
+  foe, something bad
 ')
 ```
 

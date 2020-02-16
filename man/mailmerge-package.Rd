@@ -7,7 +7,7 @@
 \alias{mailmerge}
 \title{mailmerge: Mail Merge Using R Markdown Documents and 'gmailr'}
 \description{
-\if{html}{\figure{logo.png}{options: align='right'}}
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
 Mail merge using markdown documents and gmail. With this package
     you can parse markdown documents as the body of email, and the `yaml` header 

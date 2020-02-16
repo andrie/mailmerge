@@ -4,16 +4,27 @@
 \alias{mm_send_mail}
 \title{Send email.}
 \usage{
-mm_send_mail(delegate, body, subject, draft = FALSE)
+mm_send_mail(
+  to,
+  body,
+  subject,
+  cc = NULL,
+  draft = FALSE,
+  test = Sys.getenv("mailmerge_test", FALSE)
+)
 }
 \arguments{
-\item{delegate}{A data frame with one row, containing information about the student.}
+\item{to}{A data frame with one row, containing information about the student.}
 
 \item{body}{The email message, in markdown format.}
 
-\item{subject}{Subject line}
+\item{subject}{The email subject.}
+
+\item{cc}{The email cc.}
 
 \item{draft}{if \code{TRUE} sends a draft, otherwise sends the real email}
+
+\item{test}{If TRUE, doesn't send email but simply returns \code{mime} value, used for testing.}
 }
 \value{
 An email message
