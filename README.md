@@ -7,6 +7,8 @@
 
 [![Travis build
 status](https://travis-ci.org/andrie/mailmerge.svg?branch=master)](https://travis-ci.org/andrie/mailmerge)
+[![Codecov test
+coverage](https://codecov.io/gh/andrie/mailmerge/branch/master/graph/badge.svg)](https://codecov.io/gh/andrie/mailmerge?branch=master)
 <!-- badges: end -->
 
 Mail merge from R using markdown documents and gmail.
