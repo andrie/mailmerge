@@ -1,3 +1,4 @@
+#' @details The main function in this package is [mail_merge()]
 #' @keywords internal
 #' @aliases mailmerge
 "_PACKAGE"

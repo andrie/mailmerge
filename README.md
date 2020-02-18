@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Travis build
+status](https://travis-ci.org/andrie/mailmerge.svg?branch=master)](https://travis-ci.org/andrie/mailmerge)
 <!-- badges: end -->
 
 Mail merge from R using markdown documents and gmail.
@@ -32,20 +34,22 @@ Construct a data frame with the content you want to merge into your
 email:
 
 ``` r
-dat = read.csv(text = '
-  first_name,  thing
-  friend, something good
-  foe, something bad
-')
+dat <-  read.csv(text = '
+"email",              "first_name", "thing"
+"friend@example.com", "friend",     "something good"
+"foe@example.com",    "foe",        "something bad"
+', 
+stringsAsFactors = FALSE)
 ```
 
 Write the text of your email as a R markdown document. You can add the
 subject line in the yaml header. Use `{}` braces inside the email to
 refer to the data inside your data frame. Expressions inside these
-braces will be encoded by the `glue::glue()` function (See
+braces will be encoded by the `glue::glue_data()` function (See
 <https://glue.tidyverse.org/>).
 
-``` md
+``` r
+msg <- '
 ---
 subject: Your subject line
 ---
@@ -56,24 +60,28 @@ I am writing to tell you about {thing}.
 HTH
 
 Me
+'
 ```
 
 Then you can use `mail_merge()` to embed the content of your data frame
 into the email message.
 
 ``` r
+
 library(mailmerge)
 library(gmailr)
+#> 
+#> Attaching package: 'gmailr'
+#> The following object is masked from 'package:utils':
+#> 
+#>     history
+#> The following objects are masked from 'package:base':
+#> 
+#>     body, date, labels, message
+```
 
-
-# configure auth ----------------------------------------------------------
-
-gm_auth(email = "me@example.com")
-
-
-txt = readLines("path/to/message.Rmd")
-msg = mm_parse_email(txt)
-
+``` r
 dat %>% 
   mail_merge(msg)
+#> Sent preview to viewer
 ```

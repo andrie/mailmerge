@@ -5,7 +5,8 @@ Description: Mail merge using markdown documents and gmail. With this package
     to specify the subject line of the email.  Any '{}' braces in the email will be 
     encoded with 'glue::glue()'. You can preview the email in the RStudio viewer pane, and
     send (draft) email using 'gmailr'.
-Version: 0.0.0.9000
+Version: 0.1.0.9000
+Date: 2020-02-18
 Authors@R: 
     person(given = "Andrie",
            family = "de Vries",
@@ -24,7 +25,8 @@ Imports:
     magrittr,
     withr,
     purrr,
-    utils
+    utils,
+    fs
 Suggests: 
     covr,
     knitr,

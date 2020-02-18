@@ -15,6 +15,9 @@ Mail merge using markdown documents and gmail. With this package
     encoded with 'glue::glue()'. You can preview the email in the RStudio viewer pane, and
     send (draft) email using 'gmailr'.
 }
+\details{
+The main function in this package is \code{\link[=mail_merge]{mail_merge()}}
+}
 \seealso{
 Useful links:
 \itemize{

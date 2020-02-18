@@ -7,3 +7,5 @@ scripts/*
 ^docs$
 ^pkgdown$
 ^logo\.svg$
+^\.travis\.yml$
+^codecov\.yml$

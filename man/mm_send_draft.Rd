@@ -7,13 +7,13 @@
 mm_send_draft(to, body, subject, cc = NULL, draft = TRUE)
 }
 \arguments{
-\item{to}{A data frame with one row, containing information about the student.}
+\item{to}{The email \code{to} address}
 
-\item{body}{The email message, in markdown format.}
+\item{body}{The email message, in markdown format}
 
-\item{subject}{The email subject.}
+\item{subject}{The email subject}
 
-\item{cc}{The email cc.}
+\item{cc}{The email \code{cc} address}
 
 \item{draft}{if \code{TRUE} sends a draft, otherwise sends the real email}
 }

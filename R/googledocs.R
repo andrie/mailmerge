@@ -5,9 +5,8 @@
 #' @return the imported document
 #' @export
 #' @importFrom googledrive drive_download
-#' @importFrom withr with_tempfile
 #'
-read_googledoc <- function(id){
+mm_read_googledoc <- function(id){
   file <- download_googledoc(id)
   readLines(file) %>% 
       paste(collapse = "\n")
@@ -27,16 +26,19 @@ download_googledoc <- function(id, file){
 
 #' Parse the email template inside a markdown document on google drive.
 #'
+#' You can use this to construct the `message` argument of [mail_merge()].
 #'
-#' @inheritParams read_googledoc
-#' @inherit mm_parse_email
+#' @inheritParams mm_read_googledoc
+#' @inherit mm_read_message
 #'
 #' @export
 #' 
+#' @family parsing functions
+#' 
 #'
-mm_parse_email_from_googledoc <- function(id) {
-  txt <- read_googledoc(id = id)
-  mm_parse_email(txt = txt)
+mm_read_message_googledoc <- function(id) {
+  txt <- mm_read_googledoc(id = id)
+  mm_read_message(txt = txt)
 }
 
 

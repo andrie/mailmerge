@@ -1,11 +1,20 @@
 #' Parse a markdown document into yaml and body components.
 #' 
-#' @param txt R Markdown document
+#' You can use this to construct the `message` argument of [mail_merge()].
+#' 
+#' @param txt A file in markdown format
 #' 
 #' @return A list with components `yaml` and `body`
 #' @importFrom rmarkdown yaml_front_matter
-#' @keywords internal
-mm_parse_email <- function(txt){
+#' @importFrom fs file_exists
+#' @export
+#' 
+#' @family parsing functions
+mm_read_message <- function(txt) {
+  if (fs::file_exists(txt)) {
+    txt <- readLines(txt)
+  }
+  if (is.list(txt)) return(txt)
   yaml <- txt %>% 
     textConnection() %>% 
     rmarkdown::yaml_front_matter()

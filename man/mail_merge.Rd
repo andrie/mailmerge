@@ -2,11 +2,12 @@
 % Please edit documentation in R/mail_merge.R
 \name{mail_merge}
 \alias{mail_merge}
-\title{Send course email.}
+\title{Merges data into an email and send.}
 \usage{
 mail_merge(
   data,
   message,
+  to_col = "email",
   preview = TRUE,
   draft = TRUE,
   sleep_preview = 1,
@@ -14,22 +15,65 @@ mail_merge(
 )
 }
 \arguments{
-\item{data}{A \code{tibble} with all the columns that should be glued into
-the message}
+\item{data}{A data frame or \code{tibble} with all the columns that should be
+glued into the message. Substitution is performed using
+\code{\link[glue:glue_data]{glue::glue_data()}}`}
 
-\item{message}{A list with components \code{yaml} and \code{body}.  See
-\code{\link[=mm_parse_email_from_googledoc]{mm_parse_email_from_googledoc()}}}
+\item{message}{A list with components \code{yaml} and \code{body}.  You can use
+\code{\link[=mm_read_message]{mm_read_message()}} or \code{\link[=mm_read_message_googledoc]{mm_read_message_googledoc()}} to construct a
+message in this format.}
+
+\item{to_col}{The name of the column in \code{data} that contains the email
+address to send the message to}
 
 \item{preview}{If \code{TRUE} displays message in viewer without sending mail}
 
 \item{draft}{if \code{TRUE} sends a draft, otherwise sends the real email}
 
-\item{sleep_preview}{If \code{draft == TRUE} the number of seconds to sleep between each
-preview}
+\item{sleep_preview}{If \code{draft == TRUE} the number of seconds to sleep
+between each preview}
 
 \item{sleep_send}{If \code{draft == FALSE} the number of seconds to sleep between
 each email send (to prevent gmail API 500 errors)}
 }
+\value{
+invisibly returns the input data set. This means you can potentially
+pipe multiple operations together.
+}
 \description{
-Send course email.
+Merges columns from a data frame into a markdown document using the
+\code{\link[glue:glue_data]{glue::glue_data()}} function. The markdown can contain a yaml header for
+subject and cc line.
+}
+\examples{
+## ---- input-data --------------------------------------------------------
+
+dat <-  read.csv(text = '
+"email",              "first_name", "thing"
+"friend@example.com", "friend",     "something good"
+"foe@example.com",    "foe",        "something bad"
+', 
+stringsAsFactors = FALSE)
+
+## ---- markdown-message --------------------------------------------------
+
+msg <- '
+---
+subject: Your subject line
+---
+Hi, {first_name}
+
+I am writing to tell you about {thing}.
+
+HTH
+
+Me
+'
+
+
+## ---- mail-merge --------------------------------------------------------
+
+dat \%>\% 
+  mail_merge(msg)
+
 }

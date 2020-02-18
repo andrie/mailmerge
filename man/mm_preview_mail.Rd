@@ -4,16 +4,16 @@
 \alias{mm_preview_mail}
 \title{Preview message in viewer pane.}
 \usage{
-mm_preview_mail(to, subject = NULL, body, cc = NULL)
+mm_preview_mail(to, subject = "", body, cc = "")
 }
 \arguments{
-\item{to}{A data frame with one row, containing information about the student.}
+\item{to}{The email \code{to} address}
 
-\item{subject}{The email subject.}
+\item{subject}{The email subject}
 
-\item{body}{The email message, in markdown format.}
+\item{body}{The email message, in markdown format}
 
-\item{cc}{The email cc.}
+\item{cc}{The email \code{cc} address}
 }
 \value{
 HTML text
