@@ -33,6 +33,9 @@ test_that("send mail", {
   z <- mm_send_mail(to = to, body = body, subject = subject)
   expect_is(z, "mime")
   
+  z <- mm_read_message(msg)
+  expect_is(z, "list")
+  
   z <- dat %>% 
     mail_merge(msg, preview = TRUE)
   expect_is(z, "list")

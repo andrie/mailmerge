@@ -15,7 +15,7 @@ mm_read_message <- function(txt) {
   is_file <- function(x) {
     z <- tryCatch(fs::file_exists(x), error = function(e)e)
     if (inherits(z, "error")) return(FALSE)
-    TRUE
+    isTRUE(z)
   }
   if (is_file(txt)) {
     txt <- readLines(txt)
