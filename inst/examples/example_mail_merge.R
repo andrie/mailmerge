@@ -29,4 +29,3 @@ Me
 
 dat %>% 
   mail_merge(msg)
-
