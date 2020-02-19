@@ -48,24 +48,26 @@ subject and cc line.
 \examples{
 ## ---- input-data --------------------------------------------------------
 
-dat <-  read.csv(text = '
-"email",              "first_name", "thing"
-"friend@example.com", "friend",     "something good"
-"foe@example.com",    "foe",        "something bad"
-', 
-stringsAsFactors = FALSE)
+dat <-  data.frame(
+  email      = c("friend@example.com", "foe@example.com"),
+  first_name = c("friend", "foe"),
+  thing      = c("something good", "something bad"),
+  stringsAsFactors = FALSE
+)
 
 ## ---- markdown-message --------------------------------------------------
 
 msg <- '
 ---
-subject: Your subject line
+subject: "**Hello, {first_name}**"
 ---
-Hi, {first_name}
 
-I am writing to tell you about {thing}.
+Hi, **{first_name}**
 
-HTH
+I am writing to tell you about **{thing}**.
+
+{if (first_name == "friend") "Regards" else ""}
+
 
 Me
 '

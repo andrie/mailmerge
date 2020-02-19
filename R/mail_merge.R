@@ -67,8 +67,8 @@ mail_merge <- function(data, message, to_col = "email", preview = TRUE, draft = 
         msg <- 
           do.call(mm_preview_mail, args)
         
+        in_viewer(msg)
         if (interactive() && is_rstudio()) {
-          in_viewer(msg)
           Sys.sleep(sleep_preview)
         }
         msg

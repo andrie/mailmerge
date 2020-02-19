@@ -6,8 +6,8 @@ is_rstudio <- function() Sys.getenv("RSTUDIO") == "1"
 
 glue_mail <- function(data, message) {
   body    <- message$body
-  subject <-  message$yaml$subject
-  cc      <-  message$yaml$cc
+  subject <- message$yaml$subject
+  cc      <- message$yaml$cc
 
   subject <- glue_data(data, subject)
   cc      <- glue_data(data, cc)
@@ -120,10 +120,13 @@ in_viewer <- function(x){
     </body>
     </html>
     "
-  html <- tempfile(fileext = ".html")
-  z <- paste(pre, x, post, sep = "\n")
-  writeLines(z, con = html)
-  rstudioapi::viewer(html)
+  
+  if (interactive() && is_rstudio()) {
+    html <- tempfile(fileext = ".html")
+    z <- paste(pre, x, post, sep = "\n")
+    writeLines(z, con = html)
+    rstudioapi::viewer(html)
+  }
 }
 
 

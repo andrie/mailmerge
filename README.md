@@ -9,6 +9,8 @@
 status](https://travis-ci.org/andrie/mailmerge.svg?branch=master)](https://travis-ci.org/andrie/mailmerge)
 [![Codecov test
 coverage](https://codecov.io/gh/andrie/mailmerge/branch/master/graph/badge.svg)](https://codecov.io/gh/andrie/mailmerge?branch=master)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 Mail merge from R using markdown documents and gmail.
@@ -17,7 +19,7 @@ Mail merge from R using markdown documents and gmail.
   - Using the `yaml` header to specify the subject line of the email
   - Using `glue` to replace `{}` tags
   - Preview the email in the RStudio viewer pane
-  - Sending (draft) email using `gmailr`
+  - Sending email (or saving as draft) using `gmailr`
 
 Note: Right now, the only supported email backend is `gmailr` (see
 <https://gmailr.r-lib.org/>).
@@ -36,12 +38,12 @@ Construct a data frame with the content you want to merge into your
 email:
 
 ``` r
-dat <-  read.csv(text = '
-"email",              "first_name", "thing"
-"friend@example.com", "friend",     "something good"
-"foe@example.com",    "foe",        "something bad"
-', 
-stringsAsFactors = FALSE)
+dat <-  data.frame(
+  email      = c("friend@example.com", "foe@example.com"),
+  first_name = c("friend", "foe"),
+  thing      = c("something good", "something bad"),
+  stringsAsFactors = FALSE
+)
 ```
 
 Write the text of your email as a R markdown document. You can add the
@@ -53,20 +55,27 @@ braces will be encoded by the `glue::glue_data()` function (See
 ``` r
 msg <- '
 ---
-subject: Your subject line
+subject: "**Hello, {first_name}**"
 ---
-Hi, {first_name}
 
-I am writing to tell you about {thing}.
+Hi, **{first_name}**
 
-HTH
+I am writing to tell you about **{thing}**.
+
+{if (first_name == "friend") "Regards" else ""}
+
 
 Me
 '
 ```
 
 Then you can use `mail_merge()` to embed the content of your data frame
-into the email message.
+into the email message. By default the email will be shown in a preview
+window (in the RStudio viewer pane, if you use RStudio).
+
+To send the message, you must set `preview = FALSE` in addition to
+`draft = TRUE` (to save email to your draft folder) or `draft = FALSE`
+(to send immediately).
 
 ``` r
 
@@ -87,3 +96,9 @@ dat %>%
   mail_merge(msg)
 #> Sent preview to viewer
 ```
+
+<center>
+
+<img src="man/figures/mail-merge.gif" ></img>
+
+</center>
