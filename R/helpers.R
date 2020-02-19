@@ -4,14 +4,16 @@ collapse <- function(...) paste(..., collapse = "\n")
 
 is_rstudio <- function() Sys.getenv("RSTUDIO") == "1"
 
-glue_mail <- function(data, message) {
-  body    <- message$body
-  subject <- message$yaml$subject
-  cc      <- message$yaml$cc
+nulls_to_empty <- function(x) {if (is.null(x) || length(x) == 0) x <- ""; return(x) }
 
-  subject <- glue_data(data, subject)
-  cc      <- glue_data(data, cc)
-  body    <- glue_data(data, body)
+glue_mail <- function(data, message) {
+  body    <- message$body %>% nulls_to_empty()
+  subject <- message$yaml$subject %>% nulls_to_empty()
+  cc      <- message$yaml$cc %>% nulls_to_empty()
+
+  subject <- glue_data(data, subject) %>% nulls_to_empty()
+  cc      <- glue_data(data, cc) %>% nulls_to_empty()
+  body    <- glue_data(data, body) %>% nulls_to_empty()
   
   list(
     body = body,
