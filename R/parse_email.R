@@ -11,10 +11,15 @@
 #' 
 #' @family parsing functions
 mm_read_message <- function(txt) {
-  if (fs::file_exists(txt)) {
+  if (is.list(txt)) return(txt)
+  is_file <- function(x) {
+    z <- tryCatch(fs::file_exists(x), error = function(e)e)
+    if (inherits(z, "error")) return(FALSE)
+    TRUE
+  }
+  if (is_file(txt)) {
     txt <- readLines(txt)
   }
-  if (is.list(txt)) return(txt)
   yaml <- txt %>% 
     textConnection() %>% 
     rmarkdown::yaml_front_matter()
