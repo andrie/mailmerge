@@ -184,24 +184,26 @@ pipe multiple operations together.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## ---- input-data --------------------------------------------------------</span>
 
-<span class='no'>dat</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>'
-"email",              "first_name", "thing"
-"friend@example.com", "friend",     "something good"
-"foe@example.com",    "foe",        "something bad"
-'</span>,
-<span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='no'>dat</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(
+  <span class='kw'>email</span>      <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"friend@example.com"</span>, <span class='st'>"foe@example.com"</span>),
+  <span class='kw'>first_name</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"friend"</span>, <span class='st'>"foe"</span>),
+  <span class='kw'>thing</span>      <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"something good"</span>, <span class='st'>"something bad"</span>),
+  <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)
 
 <span class='co'>## ---- markdown-message --------------------------------------------------</span>
 
 <span class='no'>msg</span> <span class='kw'>&lt;-</span> <span class='st'>'
 ---
-subject: Your subject line
+subject: "**Hello, {first_name}**"
 ---
-Hi, {first_name}
 
-I am writing to tell you about {thing}.
+Hi, **{first_name}**
 
-HTH
+I am writing to tell you about **{thing}**.
+
+{if (first_name == "friend") "Regards" else ""}
+
 
 Me
 '</span>
