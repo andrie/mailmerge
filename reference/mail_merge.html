@@ -79,7 +79,7 @@ subject and cc line." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mailmerge</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9002</span>
       </span>
     </div>
 
@@ -213,7 +213,17 @@ Me
 
 <span class='no'>dat</span> <span class='kw'>%&gt;%</span>
   <span class='fu'>mail_merge</span>(<span class='no'>msg</span>)</div><div class='output co'>#&gt; <span class='message'>Sent preview to viewer</span></div><div class='input'>
-</div></pre>
+<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+  <span class='no'>dat</span> <span class='kw'>%&gt;%</span>
+    <span class='fu'>mail_merge</span>(<span class='no'>msg</span>) <span class='kw'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>()
+}
+
+<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+  <span class='no'>dat</span> <span class='kw'>%&gt;%</span>
+    <span class='fu'>mail_merge</span>(<span class='no'>msg</span>) <span class='kw'>%&gt;%</span>
+    <span class='fu'><a href='preview_mailmerge.html'>preview_mailmerge</a></span>()
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
