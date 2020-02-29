@@ -99,17 +99,8 @@ mm_send_mail <- function(to, body, subject, cc = NULL, draft = FALSE,
   invisible(msg)
 }
 
-
-#' Display email message in RStudio viewer pane
-#'
-#' @param x message
-#'
-#' @return opens the viewer pane and displays message
-#' @export
-#' 
-#' @importFrom rstudioapi viewer
-#'
-in_viewer <- function(x){
+as_html <- function(x, standalone = TRUE) {
+  if(standalone) {
   pre <- "
     <!DOCTYPE html>
     <html>
@@ -122,10 +113,28 @@ in_viewer <- function(x){
     </body>
     </html>
     "
+
+  paste(pre, x, post, sep = "\n")
+  } else {
+    x
+  }
+    
+}
+
+#' Display email message in RStudio viewer pane
+#'
+#' @param x message
+#'
+#' @return opens the viewer pane and displays message
+#' @export
+#' 
+#' @importFrom rstudioapi viewer
+#'
+in_viewer <- function(x){
   
   if (interactive() && is_rstudio()) {
+    z <- as_html(x, standalone = TRUE)
     html <- tempfile(fileext = ".html")
-    z <- paste(pre, x, post, sep = "\n")
     writeLines(z, con = html)
     rstudioapi::viewer(html)
   }

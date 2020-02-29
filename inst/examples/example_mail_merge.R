@@ -29,3 +29,15 @@ Me
 
 dat %>% 
   mail_merge(msg)
+
+if (interactive()) {
+  dat %>%
+    mail_merge(msg) %>%
+    print()
+}
+
+if (interactive()) {
+  dat %>%
+    mail_merge(msg) %>%
+    preview_mailmerge()
+}

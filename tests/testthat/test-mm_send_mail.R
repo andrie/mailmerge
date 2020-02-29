@@ -38,7 +38,7 @@ test_that("send mail", {
   
   z <- dat %>% 
     mail_merge(msg, preview = TRUE)
-  expect_is(z, "list")
+  expect_is(z, "mailmerge_preview")
   expect_true(grepl(dat$email[1], z[[1]], fixed = TRUE))
   expect_true(grepl(dat$email[2], z[[2]], fixed = TRUE))
   expect_equal(nrow(dat), length(z))

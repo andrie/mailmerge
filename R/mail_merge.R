@@ -64,14 +64,7 @@ mail_merge <- function(data, message, to_col = "email", preview = TRUE, draft = 
       )
       
       if (preview) {
-        msg <- 
-          do.call(mm_preview_mail, args)
-        
-        in_viewer(msg)
-        if (interactive() && is_rstudio()) {
-          Sys.sleep(sleep_preview)
-        }
-        msg
+        do.call(mm_preview_mail, args)
       } else {
         Sys.sleep(sleep_send)
         if (draft) {
@@ -86,6 +79,8 @@ mail_merge <- function(data, message, to_col = "email", preview = TRUE, draft = 
   
   if (preview) {
     base::message("Sent preview to viewer")
+    class(z) <- "mailmerge_preview"
+    attr(z, "sleep") <- sleep_preview
   } else {
     if (draft) {
       base::message("Sent ", n_messages, " messages to your draft folder")
@@ -93,7 +88,15 @@ mail_merge <- function(data, message, to_col = "email", preview = TRUE, draft = 
     base::message("Sent ", n_messages, " messages to email")
     }
   }
-  invisible(z)
+  z
 }
 
+#' @export
+print.mailmerge_preview <- function(x, ...) {
+  purrr::walk(x, function(xx){
+    in_viewer(xx)
+    Sys.sleep(attr(x, "sleep"))
+  }
+  )
+}
 
