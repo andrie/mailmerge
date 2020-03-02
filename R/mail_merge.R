@@ -18,15 +18,18 @@
 #'   message in this format.
 #'
 #' @param to_col The name of the column in `data` that contains the email
-#'   address to send the message to
+#'   address to send the message to.
 #'
-#' @param preview If `TRUE` displays message in viewer without sending mail
+#' @param preview If `TRUE` displays message in viewer without sending mail.
+#' 
+#' @param confirm If `TRUE` sends email without additional confirmation.
+#'   If `FALSE` asks for confirmation before sending.
 #'
 #' @param sleep_preview If `draft == TRUE` the number of seconds to sleep
-#'   between each preview
+#'   between each preview.
 #'
 #' @param sleep_send If `draft == FALSE` the number of seconds to sleep between
-#'   each email send (to prevent gmail API 500 errors)
+#'   each email send (to prevent gmail API 500 errors).
 #'
 #' @export
 #' @importFrom purrr map pmap
@@ -36,7 +39,10 @@
 #'   
 #' @example inst/examples/example_mail_merge.R
 #'   
-mail_merge <- function(data, message, to_col = "email", preview = TRUE, draft = TRUE, 
+mail_merge <- function(data, message, to_col = "email", 
+                       preview = TRUE, 
+                       draft = TRUE, 
+                       confirm = FALSE, 
                        sleep_preview = 1, sleep_send = 0.1) {
   if(nrow(data) == 0) {
     warning("nothing to email")
@@ -46,7 +52,7 @@ mail_merge <- function(data, message, to_col = "email", preview = TRUE, draft = 
   
   msg <- mm_read_message(message)
   
-  if(!preview) {
+  if(!preview && !confirm) {
     yesno("Send ", nrow(data), " emails?")
   }
   

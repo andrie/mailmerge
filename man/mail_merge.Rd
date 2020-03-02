@@ -10,6 +10,7 @@ mail_merge(
   to_col = "email",
   preview = TRUE,
   draft = TRUE,
+  confirm = FALSE,
   sleep_preview = 1,
   sleep_send = 0.1
 )
@@ -24,17 +25,20 @@ glued into the message. Substitution is performed using
 message in this format.}
 
 \item{to_col}{The name of the column in \code{data} that contains the email
-address to send the message to}
+address to send the message to.}
 
-\item{preview}{If \code{TRUE} displays message in viewer without sending mail}
+\item{preview}{If \code{TRUE} displays message in viewer without sending mail.}
 
 \item{draft}{if \code{TRUE} sends a draft, otherwise sends the real email}
 
+\item{confirm}{If \code{TRUE} sends email without additional confirmation.
+If \code{FALSE} asks for confirmation before sending.}
+
 \item{sleep_preview}{If \code{draft == TRUE} the number of seconds to sleep
-between each preview}
+between each preview.}
 
 \item{sleep_send}{If \code{draft == FALSE} the number of seconds to sleep between
-each email send (to prevent gmail API 500 errors)}
+each email send (to prevent gmail API 500 errors).}
 }
 \value{
 invisibly returns the input data set. This means you can potentially
