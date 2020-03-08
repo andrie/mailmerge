@@ -126,7 +126,7 @@
 <span id="cb3-13"><a href="#cb3-13"></a><span class="st">Me</span></span>
 <span id="cb3-14"><a href="#cb3-14"></a><span class="st">'</span></span></code></pre></div>
 <p>Then you can use <code><a href="reference/mail_merge.html">mail_merge()</a></code> to embed the content of your data frame into the email message. By default the email will be shown in a preview window (in the RStudio viewer pane, if you use RStudio).</p>
-<p>To send the message, you must set <code>preview = FALSE</code> in addition to <code>draft = TRUE</code> (to save email to your draft folder) or <code>draft = FALSE</code> (to send immediately).</p>
+<p>To send the message, use <code>send = "draft"</code> (to save in your gmail drafts folder) or <code>send = "immediately"</code> to send the mail immediately.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(mailmerge)</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gmailr)</span>

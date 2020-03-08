@@ -130,8 +130,7 @@ subject and cc line.</p>
   <span class='no'>data</span>,
   <span class='no'>message</span>,
   <span class='kw'>to_col</span> <span class='kw'>=</span> <span class='st'>"email"</span>,
-  <span class='kw'>preview</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>draft</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>send</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"preview"</span>, <span class='st'>"draft"</span>, <span class='st'>"immediately"</span>),
   <span class='kw'>confirm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>sleep_preview</span> <span class='kw'>=</span> <span class='fl'>1</span>,
   <span class='kw'>sleep_send</span> <span class='kw'>=</span> <span class='fl'>0.1</span>
@@ -158,12 +157,12 @@ message in this format.</p></td>
 address to send the message to.</p></td>
     </tr>
     <tr>
-      <th>preview</th>
-      <td><p>If <code>TRUE</code> displays message in viewer without sending mail.</p></td>
-    </tr>
-    <tr>
-      <th>draft</th>
-      <td><p>if <code>TRUE</code> sends a draft, otherwise sends the real email</p></td>
+      <th>send</th>
+      <td><p>A character string, one of:</p><ul>
+<li><p>"preview" : displays message in viewer without sending mail</p></li>
+<li><p>"draft : writes message into "drafts" folder on gmail</p></li>
+<li><p>"immediately" : sends email</p></li>
+</ul></td>
     </tr>
     <tr>
       <th>confirm</th>
@@ -172,12 +171,12 @@ If <code>FALSE</code> asks for confirmation before sending.</p></td>
     </tr>
     <tr>
       <th>sleep_preview</th>
-      <td><p>If <code>draft == TRUE</code> the number of seconds to sleep
+      <td><p>If <code>send == "preview"</code> the number of seconds to sleep
 between each preview.</p></td>
     </tr>
     <tr>
       <th>sleep_send</th>
-      <td><p>If <code>draft == FALSE</code> the number of seconds to sleep between
+      <td><p>If <code>send == "immediately"</code> the number of seconds to sleep between
 each email send (to prevent gmail API 500 errors).</p></td>
     </tr>
     </table>
