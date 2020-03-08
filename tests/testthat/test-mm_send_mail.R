@@ -31,7 +31,7 @@ test_that("send mail", {
   Sys.setenv(mailmerge_test = TRUE)
   
   z <- mm_send_mail(to = to, body = body, subject = subject)
-  expect_is(z, "NULL")
+  expect_is(z, "list")
   
   z <- mm_read_message(msg)
   expect_is(z, "list")

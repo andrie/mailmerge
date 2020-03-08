@@ -87,16 +87,45 @@ mm_send_mail <- function(to, body, subject, cc = NULL, draft = FALSE,
     )
   
   test <- (test == "TRUE") | isTRUE(test)
-  if (!test) {
-    if (draft) {
-      msg %>% 
-        gm_create_draft()
+  z <- if (!test) {
+    tryCatch({
+      if (draft) {
+        msg %>% 
+          gm_create_draft()
+      } else {
+        msg %>%
+          gm_send_message()
+      }
+    },
+    error = function(e) e
+    )
+  }
+  if(test) {
+    list(
+      msg = msg,
+      id = NA,
+      type = "test",
+      success = NA
+    )
+  } else {
+    if (inherits(z, "error")) {
+      list(
+        msg = msg,
+        id = NA,
+        type = NA,
+        success = FALSE
+      )
+      
     } else {
-      msg %>%
-        gm_send_message()
+      list(
+        msg = msg,
+        id = z$id,
+        type = z$labelIds[[1]],
+        success = TRUE
+      )
+        
     }
   }
-  # invisible(msg)
 }
 
 as_html <- function(x, standalone = TRUE) {

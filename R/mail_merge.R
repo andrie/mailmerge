@@ -32,8 +32,11 @@
 #' @export
 #' @importFrom purrr map pmap
 #'
-#' @return invisibly returns the input data set. This means you can potentially
-#'   pipe multiple operations together.
+#' @return Returns a list for every message, consisting of:
+#' * `msg`: The message in `mime` format
+#' * `id`: The `gmailr` response id
+#' * `type`: preview, draft or sent
+#' * `success`: TRUE if the message was sent successfully
 #'   
 #' @example inst/examples/example_mail_merge.R
 #'   
