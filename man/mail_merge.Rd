@@ -8,8 +8,7 @@ mail_merge(
   data,
   message,
   to_col = "email",
-  preview = TRUE,
-  draft = TRUE,
+  send = c("preview", "draft", "immediately"),
   confirm = FALSE,
   sleep_preview = 1,
   sleep_send = 0.1
@@ -27,17 +26,20 @@ message in this format.}
 \item{to_col}{The name of the column in \code{data} that contains the email
 address to send the message to.}
 
-\item{preview}{If \code{TRUE} displays message in viewer without sending mail.}
-
-\item{draft}{if \code{TRUE} sends a draft, otherwise sends the real email}
+\item{send}{A character string, one of:
+\itemize{
+\item "preview" : displays message in viewer without sending mail
+\item "draft : writes message into "drafts" folder on gmail
+\item "immediately" : sends email
+}}
 
 \item{confirm}{If \code{TRUE} sends email without additional confirmation.
 If \code{FALSE} asks for confirmation before sending.}
 
-\item{sleep_preview}{If \code{draft == TRUE} the number of seconds to sleep
+\item{sleep_preview}{If \code{send == "preview"} the number of seconds to sleep
 between each preview.}
 
-\item{sleep_send}{If \code{draft == FALSE} the number of seconds to sleep between
+\item{sleep_send}{If \code{send == "immediately"} the number of seconds to sleep between
 each email send (to prevent gmail API 500 errors).}
 }
 \value{

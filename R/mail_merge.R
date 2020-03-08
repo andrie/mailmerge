@@ -4,11 +4,6 @@
 #' [glue::glue_data()] function. The markdown can contain a yaml header for
 #' subject and cc line.
 #'
-#' @inheritParams mm_send_draft
-#' @inheritParams mm_preview_mail
-#' @inheritParams mm_send_mail
-#'
-#'
 #' @param data A data frame or `tibble` with all the columns that should be
 #'   glued into the message. Substitution is performed using
 #'   [glue::glue_data()]`
@@ -20,15 +15,18 @@
 #' @param to_col The name of the column in `data` that contains the email
 #'   address to send the message to.
 #'
-#' @param preview If `TRUE` displays message in viewer without sending mail.
+#' @param send A character string, one of:
+#' * "preview" : displays message in viewer without sending mail
+#' * "draft : writes message into "drafts" folder on gmail
+#' * "immediately" : sends email
 #' 
 #' @param confirm If `TRUE` sends email without additional confirmation.
 #'   If `FALSE` asks for confirmation before sending.
 #'
-#' @param sleep_preview If `draft == TRUE` the number of seconds to sleep
+#' @param sleep_preview If `send == "preview"` the number of seconds to sleep
 #'   between each preview.
 #'
-#' @param sleep_send If `draft == FALSE` the number of seconds to sleep between
+#' @param sleep_send If `send == "immediately"` the number of seconds to sleep between
 #'   each email send (to prevent gmail API 500 errors).
 #'
 #' @export
@@ -39,11 +37,16 @@
 #'   
 #' @example inst/examples/example_mail_merge.R
 #'   
-mail_merge <- function(data, message, to_col = "email", 
-                       preview = TRUE, 
-                       draft = TRUE, 
+mail_merge <- function(data, message, to_col = "email", send = c("preview", "draft", "immediately"),
                        confirm = FALSE, 
-                       sleep_preview = 1, sleep_send = 0.1) {
+                       sleep_preview = 1, sleep_send = 0.1
+){
+  
+  send <- match.arg(send)
+  
+  preview <- identical(send, "preview")
+  draft   <- identical(send, "draft")
+  
   if(nrow(data) == 0) {
     warning("nothing to email")
     return(invisible(data))

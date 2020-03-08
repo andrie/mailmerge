@@ -75,9 +75,8 @@ Then you can use `mail_merge()` to embed the content of your data frame
 into the email message. By default the email will be shown in a preview
 window (in the RStudio viewer pane, if you use RStudio).
 
-To send the message, you must set `preview = FALSE` in addition to
-`draft = TRUE` (to save email to your draft folder) or `draft = FALSE`
-(to send immediately).
+To send the message, use `send = "draft"` (to save in your gmail drafts
+folder) or `send = "immediately"` to send the mail immediately.
 
 ``` r
 

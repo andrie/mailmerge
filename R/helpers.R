@@ -96,7 +96,7 @@ mm_send_mail <- function(to, body, subject, cc = NULL, draft = FALSE,
         gm_send_message()
     }
   }
-  invisible(msg)
+  # invisible(msg)
 }
 
 as_html <- function(x, standalone = TRUE) {
