@@ -10,3 +10,4 @@ scripts/*
 ^\.travis\.yml$
 ^codecov\.yml$
 ^\.github$
+.covrignore
