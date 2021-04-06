@@ -7,7 +7,7 @@
 preview_mailmerge(x)
 }
 \arguments{
-\item{x}{mailmer_preview object}
+\item{x}{mailmerge_preview object}
 }
 \description{
 Preview mailmerge as shiny gadget in RStudio preview pane.

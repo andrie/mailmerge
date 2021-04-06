@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 [![R build status](https://github.com/andrie/mailmerge/workflows/R-CMD-check/badge.svg)](https://github.com/andrie/mailmerge/actions)
 [![Travis build status](https://travis-ci.org/andrie/mailmerge.svg?branch=master)](https://travis-ci.org/andrie/mailmerge)
 [![Codecov test coverage](https://codecov.io/gh/andrie/mailmerge/branch/master/graph/badge.svg)](https://codecov.io/gh/andrie/mailmerge?branch=master)
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 Mail merge from R using markdown documents and gmail.
@@ -43,7 +43,7 @@ Install the package from CRAN:
 install.packages("mailmerge")
 ```
 
-Install the dev version from http://github.com/andrie/mailmerge
+Install the dev version from https://github.com/andrie/mailmerge
 
 ``` r
 remotes::install_github("andrie/mailmerge")

@@ -12,7 +12,7 @@ status](https://travis-ci.org/andrie/mailmerge.svg?branch=master)](https://travi
 [![Codecov test
 coverage](https://codecov.io/gh/andrie/mailmerge/branch/master/graph/badge.svg)](https://codecov.io/gh/andrie/mailmerge?branch=master)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 Mail merge from R using markdown documents and gmail.
@@ -28,7 +28,13 @@ Note: Right now, the only supported email backend is `gmailr` (see
 
 ## Installation
 
-This package is only available from <http://github.com/andrie/mailmerge>
+Install the package from CRAN:
+
+``` r
+install.packages("mailmerge")
+```
+
+Install the dev version from <https://github.com/andrie/mailmerge>
 
 ``` r
 remotes::install_github("andrie/mailmerge")

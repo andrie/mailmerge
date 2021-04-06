@@ -3,7 +3,7 @@
 
 #' Preview mailmerge as shiny gadget in RStudio preview pane.
 #' 
-#' @param x mailmer_preview object
+#' @param x mailmerge_preview object
 #' 
 #' @export
 #' @importFrom miniUI miniPage gadgetTitleBar miniContentPanel
