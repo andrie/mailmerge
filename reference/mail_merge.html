@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -47,7 +51,8 @@
 glue::glue_data() function. The markdown can contain a yaml header for
 subject and cc line." />
 <meta property="og:image" content="/logo.svg" />
-<meta name="twitter:card" content="summary" />
+
+
 
 
 
@@ -63,9 +68,18 @@ subject and cc line." />
 
 
 
+<!-- dependencies from examples -->
+
+
+  
+
+  
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -79,26 +93,23 @@ subject and cc line." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mailmerge</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9003</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/andrie/mailmerge">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/andrie/mailmerge/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -122,19 +133,19 @@ subject and cc line." />
 
     <div class="ref-description">
     <p>Merges columns from a data frame into a markdown document using the
-<code><a href='https://rdrr.io/pkg/glue/man/glue.html'>glue::glue_data()</a></code> function. The markdown can contain a yaml header for
+<code><a href='https://glue.tidyverse.org/reference/glue.html'>glue::glue_data()</a></code> function. The markdown can contain a yaml header for
 subject and cc line.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mail_merge</span>(
-  <span class='no'>data</span>,
-  <span class='no'>message</span>,
-  <span class='kw'>to_col</span> <span class='kw'>=</span> <span class='st'>"email"</span>,
-  <span class='kw'>send</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"preview"</span>, <span class='st'>"draft"</span>, <span class='st'>"immediately"</span>),
-  <span class='kw'>confirm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>sleep_preview</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>sleep_send</span> <span class='kw'>=</span> <span class='fl'>0.1</span>
-)</pre>
+    <pre class="usage"><span class='fu'>mail_merge</span><span class='op'>(</span>
+  <span class='va'>data</span>,
+  <span class='va'>message</span>,
+  to_col <span class='op'>=</span> <span class='st'>"email"</span>,
+  send <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"preview"</span>, <span class='st'>"draft"</span>, <span class='st'>"immediately"</span><span class='op'>)</span>,
+  confirm <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  sleep_preview <span class='op'>=</span> <span class='fl'>1</span>,
+  sleep_send <span class='op'>=</span> <span class='fl'>0.1</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,7 +154,7 @@ subject and cc line.</p>
       <th>data</th>
       <td><p>A data frame or <code>tibble</code> with all the columns that should be
 glued into the message. Substitution is performed using
-<code><a href='https://rdrr.io/pkg/glue/man/glue.html'>glue::glue_data()</a></code>`</p></td>
+<code><a href='https://glue.tidyverse.org/reference/glue.html'>glue::glue_data()</a></code>`</p></td>
     </tr>
     <tr>
       <th>message</th>
@@ -183,22 +194,27 @@ each email send (to prevent gmail API 500 errors).</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>invisibly returns the input data set. This means you can potentially
-pipe multiple operations together.</p>
+    <p>Returns a list for every message, consisting of:</p><ul>
+<li><p><code>msg</code>: The message in <code>mime</code> format</p></li>
+<li><p><code>id</code>: The <code>gmailr</code> response id</p></li>
+<li><p><code>type</code>: preview, draft or sent</p></li>
+<li><p><code>success</code>: TRUE if the message was sent successfully</p></li>
+</ul>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## ---- input-data --------------------------------------------------------</span>
 
-<span class='no'>dat</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(
-  <span class='kw'>email</span>      <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"friend@example.com"</span>, <span class='st'>"foe@example.com"</span>),
-  <span class='kw'>first_name</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"friend"</span>, <span class='st'>"foe"</span>),
-  <span class='kw'>thing</span>      <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"something good"</span>, <span class='st'>"something bad"</span>),
-  <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)
+<span class='va'>dat</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  email      <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"friend@example.com"</span>, <span class='st'>"foe@example.com"</span><span class='op'>)</span>,
+  first_name <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"friend"</span>, <span class='st'>"foe"</span><span class='op'>)</span>,
+  thing      <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"something good"</span>, <span class='st'>"something bad"</span><span class='op'>)</span>,
+  stringsAsFactors <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
 
 <span class='co'>## ---- markdown-message --------------------------------------------------</span>
 
-<span class='no'>msg</span> <span class='kw'>&lt;-</span> <span class='st'>'
+<span class='va'>msg</span> <span class='op'>&lt;-</span> <span class='st'>'
 ---
 subject: "**Hello, {first_name}**"
 ---
@@ -216,39 +232,37 @@ Me
 
 <span class='co'>## ---- mail-merge --------------------------------------------------------</span>
 
-<span class='no'>dat</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'>mail_merge</span>(<span class='no'>msg</span>)</div><div class='output co'>#&gt; <span class='message'>Sent preview to viewer</span></div><div class='input'>
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='no'>dat</span> <span class='kw'>%&gt;%</span>
-    <span class='fu'>mail_merge</span>(<span class='no'>msg</span>) <span class='kw'>%&gt;%</span>
-    <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>()
-}
+<span class='va'>dat</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Sent preview to viewer</span></div><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>dat</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span>
 
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='no'>dat</span> <span class='kw'>%&gt;%</span>
-    <span class='fu'>mail_merge</span>(<span class='no'>msg</span>) <span class='kw'>%&gt;%</span>
-    <span class='fu'><a href='preview_mailmerge.html'>preview_mailmerge</a></span>()
-}</div></pre>
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>dat</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='preview_mailmerge.html'>preview_mailmerge</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
 
       <footer>
       <div class="copyright">
-  <p>Developed by Andrie de Vries.</p>
+  <p><p>Developed by Andrie de Vries.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -256,6 +270,8 @@ Me
 
   
 
+
+  
 
   </body>
 </html>
