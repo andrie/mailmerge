@@ -11,3 +11,4 @@ scripts/*
 ^codecov\.yml$
 ^\.github$
 .covrignore
+^cran-comments\.md$
