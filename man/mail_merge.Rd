@@ -17,7 +17,7 @@ mail_merge(
 \arguments{
 \item{data}{A data frame or \code{tibble} with all the columns that should be
 glued into the message. Substitution is performed using
-\code{\link[glue:glue_data]{glue::glue_data()}}`}
+\code{\link[glue:glue]{glue::glue_data()}}`}
 
 \item{message}{A list with components \code{yaml} and \code{body}.  You can use
 \code{\link[=mm_read_message]{mm_read_message()}} or \code{\link[=mm_read_message_googledoc]{mm_read_message_googledoc()}} to construct a
@@ -43,12 +43,17 @@ between each preview.}
 each email send (to prevent gmail API 500 errors).}
 }
 \value{
-invisibly returns the input data set. This means you can potentially
-pipe multiple operations together.
+Returns a list for every message, consisting of:
+\itemize{
+\item \code{msg}: The message in \code{mime} format
+\item \code{id}: The \code{gmailr} response id
+\item \code{type}: preview, draft or sent
+\item \code{success}: TRUE if the message was sent successfully
+}
 }
 \description{
 Merges columns from a data frame into a markdown document using the
-\code{\link[glue:glue_data]{glue::glue_data()}} function. The markdown can contain a yaml header for
+\code{\link[glue:glue]{glue::glue_data()}} function. The markdown can contain a yaml header for
 subject and cc line.
 }
 \examples{
