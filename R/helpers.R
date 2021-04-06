@@ -2,7 +2,7 @@
 
 collapse <- function(...) paste(..., collapse = "\n")
 
-is_rstudio <- function() Sys.getenv("RSTUDIO") == "1"
+is_rstudio <- function() Sys.getenv("RSTUDIO") == "1" # nocov
 
 nulls_to_empty <- function(x) {if (is.null(x) || length(x) == 0) x <- ""; return(x) }
 
@@ -128,7 +128,7 @@ mm_send_mail <- function(to, body, subject, cc = NULL, draft = FALSE,
   }
 }
 
-as_html <- function(x, standalone = TRUE) {
+as_html <- function(x, standalone = TRUE) { # nocov start
   if(standalone) {
   pre <- "
     <!DOCTYPE html>
@@ -148,7 +148,8 @@ as_html <- function(x, standalone = TRUE) {
     x
   }
     
-}
+} # nocov end
+
 
 #' Display email message in RStudio viewer pane
 #'
@@ -159,7 +160,7 @@ as_html <- function(x, standalone = TRUE) {
 #' 
 #' @importFrom rstudioapi viewer
 #'
-in_viewer <- function(x){
+in_viewer <- function(x){ # nocov start
   
   if (interactive() && is_rstudio()) {
     z <- as_html(x, standalone = TRUE)
@@ -167,6 +168,6 @@ in_viewer <- function(x){
     writeLines(z, con = html)
     rstudioapi::viewer(html)
   }
-}
+} #nocov end
 
 

@@ -104,11 +104,11 @@ mail_merge <- function(data, message, to_col = "email", send = c("preview", "dra
 }
 
 #' @export
-print.mailmerge_preview <- function(x, ...) {
+print.mailmerge_preview <- function(x, ...) { # nocov start
   purrr::walk(x, function(xx){
     in_viewer(xx)
     Sys.sleep(attr(x, "sleep"))
   }
   )
-}
+} # nocov end
 
