@@ -37,7 +37,13 @@ Note: Right now, the only supported email backend is `gmailr` (see https://gmail
 
 ## Installation
 
-This package is only available from http://github.com/andrie/mailmerge
+Install the package from CRAN:
+
+```r
+install.packages("mailmerge")
+```
+
+Install the dev version from http://github.com/andrie/mailmerge
 
 ``` r
 remotes::install_github("andrie/mailmerge")
