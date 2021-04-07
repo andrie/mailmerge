@@ -23,3 +23,4 @@ A draft email message
 \description{
 Send draft email.
 }
+\keyword{internal}

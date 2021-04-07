@@ -15,3 +15,4 @@ opens the viewer pane and displays message
 \description{
 Display email message in RStudio viewer pane
 }
+\keyword{internal}

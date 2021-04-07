@@ -25,16 +25,6 @@ Me
 '
 
 
-## ---- mail-merge --------------------------------------------------------
-
-dat %>% 
-  mail_merge(msg)
-
-if (interactive()) {
-  dat %>%
-    mail_merge(msg) %>%
-    print()
-}
 
 ## ---- display shiny gadget ----------------------------------------------
 

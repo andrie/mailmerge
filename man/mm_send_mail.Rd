@@ -32,3 +32,4 @@ An email message
 \description{
 Send email.
 }
+\keyword{internal}

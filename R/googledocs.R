@@ -1,10 +1,11 @@
 #' Read a markdown file from google drive
 #'
-#' @param id Unique Google Drive identifier
+#' @param id Unique Google Drive identifier, passed to [googledrive::drive_download]
 #'
 #' @return the imported document
-#' @export
 #' @importFrom googledrive drive_download
+#' @export
+#' @return A list of character strings, containing the content of the google doc
 #'
 mm_read_googledoc <- function(id){
   file <- download_googledoc(id)
@@ -34,6 +35,7 @@ download_googledoc <- function(id, file){
 #' @export
 #' 
 #' @family parsing functions
+#' @return A list of character strings
 #' 
 #'
 mm_read_message_googledoc <- function(id) {

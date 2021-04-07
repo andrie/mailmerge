@@ -3,6 +3,8 @@
 #' Merges columns from a data frame into a markdown document using the
 #' [glue::glue_data()] function. The markdown can contain a yaml header for
 #' subject and cc line.
+#' 
+#' Note that only 'gmail' is supported at the moment, via [gmailr::gm_send_message]
 #'
 #' @param data A data frame or `tibble` with all the columns that should be
 #'   glued into the message. Substitution is performed using

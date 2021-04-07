@@ -5,9 +5,12 @@
 #' 
 #' @param x mailmerge_preview object
 #' 
-#' @export
 #' @importFrom miniUI miniPage gadgetTitleBar miniContentPanel
 #' @importFrom shiny numericInput htmlOutput reactive observeEvent runGadget stopApp
+#' @example inst/examples/example_shiny_gadget.R
+#' @export
+#' @return A 'shiny' gadget, see also [shiny::runGadget]
+#' 
 preview_mailmerge <- function(x) {
   
   ui <- miniPage(

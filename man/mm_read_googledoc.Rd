@@ -7,10 +7,12 @@
 mm_read_googledoc(id)
 }
 \arguments{
-\item{id}{Unique Google Drive identifier}
+\item{id}{Unique Google Drive identifier, passed to \link[googledrive:drive_download]{googledrive::drive_download}}
 }
 \value{
 the imported document
+
+A list of character strings, containing the content of the google doc
 }
 \description{
 Read a markdown file from google drive

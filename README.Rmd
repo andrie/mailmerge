@@ -24,15 +24,9 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-Mail merge from R using markdown documents and gmail.
 
-* Parse markdown documents as the body of email
-* Using the `yaml` header to specify the subject line of the email
-* Using `glue` to replace `{}` tags
-* Preview the email in the RStudio viewer pane
-* Sending email (or saving as draft) using `gmailr`
-
-Note: Right now, the only supported email backend is `gmailr` (see https://gmailr.r-lib.org/).
+```{r child="man/fragments/intro_text.Rmd"}
+```
 
 
 ## Installation
@@ -51,38 +45,5 @@ remotes::install_github("andrie/mailmerge")
 
 ## Example
 
-```{r echo=FALSE, cache=FALSE}
-knitr::read_chunk(
-  system.file("examples/example_mail_merge.R", package = "mailmerge")
-)
+```{r child="man/fragments/intro_example.Rmd"}
 ```
-
-
-Construct a data frame with the content you want to merge into your email:
-
-```{r input-data}
-```
-
-Write the text of your email as a R markdown document. You can add the subject line in the yaml header.  Use `{}` braces inside the email to refer to the data inside your data frame.  Expressions inside these braces will be encoded by the `glue::glue_data()` function (See https://glue.tidyverse.org/).
-
-```{r markdown-message}
-```
-
-Then you can use `mail_merge()` to embed the content of your data frame into the email message.  By default the email will be shown in a preview window (in the RStudio viewer pane, if you use RStudio).
-
-To send the message, use `send = "draft"` (to save in your gmail drafts folder) or `send = "immediately"` to send the mail immediately.
-
-
-
-```{r library}
-
-library(mailmerge)
-library(gmailr)
-```
-
-```{r mail-merge}
-```
-
-<center>
-<img src="man/figures/mail-merge.gif" ></img>
-</center>

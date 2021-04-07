@@ -18,12 +18,12 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 Mail merge from R using markdown documents and gmail.
 
 -   Parse markdown documents as the body of email
--   Using the `yaml` header to specify the subject line of the email
--   Using `glue` to replace `{}` tags
+-   Use the `yaml` header to specify the subject line of the email
+-   Use `glue` to replace `{}` tags
 -   Preview the email in the RStudio viewer pane
--   Sending email (or saving as draft) using `gmailr`
+-   Send email (or saving as draft) using `gmailr`
 
-Note: Right now, the only supported email backend is `gmailr` (see
+Note: Right now, the only supported email back end is `gmailr` (see
 <https://gmailr.r-lib.org/>).
 
 ## Installation
@@ -86,7 +86,7 @@ folder) or `send = "immediately"` to send the mail immediately.
 
 ``` r
 library(mailmerge)
-library(gmailr)
+library(gmailr, quietly = TRUE)
 #> 
 #> Attaching package: 'gmailr'
 #> The following object is masked from 'package:utils':
@@ -107,14 +107,8 @@ if (interactive()) {
     mail_merge(msg) %>%
     print()
 }
-
-if (interactive()) {
-  dat %>%
-    mail_merge(msg) %>%
-    preview_mailmerge()
-}
 ```
 
 <center>
-<img src="man/figures/mail-merge.gif" ></img>
+<img src="C:/Users/apdev/Documents/github/R-packages/maintainer/mailmerge/mailmerge/man/figures/mail-merge.gif" width="100%" />
 </center>

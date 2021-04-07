@@ -16,7 +16,7 @@ License: MIT + file LICENSE
 URL: https://github.com/andrie/mailmerge
 BugReports: https://github.com/andrie/mailmerge/issues
 Depends:
-    R (>= 3.2)
+    R (>= 3.3)
 Imports: 
     commonmark,
     gmailr,
@@ -38,13 +38,12 @@ Suggests:
     spelling,
     covr,
     knitr,
-    testthat (>= 2.1.0)
-VignetteBuilder: 
-    rmarkdown
+    testthat (>= 2.1.0),
+    here
+VignetteBuilder: knitr
 RdMacros: 
     lifecycle
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Language: en-US

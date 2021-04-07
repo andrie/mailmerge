@@ -56,6 +56,9 @@ Merges columns from a data frame into a markdown document using the
 \code{\link[glue:glue]{glue::glue_data()}} function. The markdown can contain a yaml header for
 subject and cc line.
 }
+\details{
+Note that only 'gmail' is supported at the moment, via \link[gmailr:gm_send_message]{gmailr::gm_send_message}
+}
 \examples{
 ## ---- input-data --------------------------------------------------------
 
@@ -95,9 +98,14 @@ if (interactive()) {
     print()
 }
 
+## ---- display shiny gadget ----------------------------------------------
+
 if (interactive()) {
   dat \%>\%
     mail_merge(msg) \%>\%
     preview_mailmerge()
 }
+
+
+
 }

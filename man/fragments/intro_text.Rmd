@@ -1,0 +1,9 @@
+Mail merge from R using markdown documents and gmail.
+
+* Parse markdown documents as the body of email
+* Use the `yaml` header to specify the subject line of the email
+* Use `glue` to replace `{}` tags
+* Preview the email in the RStudio viewer pane
+* Send email (or saving as draft) using `gmailr`
+
+Note: Right now, the only supported email back end is `gmailr` (see https://gmailr.r-lib.org/).

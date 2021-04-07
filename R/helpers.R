@@ -30,9 +30,10 @@ glue_mail <- function(data, message) {
 #' @param subject The email subject
 #' @param cc The email `cc` address
 #'
-#' @return HTML text
 #' @importFrom commonmark markdown_html
 #' @importFrom glue glue_data
+#' @return HTML text
+#' @keywords internal
 mm_preview_mail <- function(to, subject = "", body, cc = ""){
   # stopifnot(nrow(delegate) == 1)
   
@@ -60,6 +61,7 @@ mm_preview_mail <- function(to, subject = "", body, cc = ""){
 #' @param draft if `TRUE` sends a draft, otherwise sends the real email
 #'
 #' @return A draft email message
+#' @keywords internal
 mm_send_draft <- function(to, body, subject, cc = NULL, draft = TRUE){
   mm_send_mail(to = to, body = body, subject = subject, cc = cc, draft = draft)
 }
@@ -74,6 +76,7 @@ mm_send_draft <- function(to, body, subject, cc = NULL, draft = TRUE){
 #' @return An email message
 #'
 #' @importFrom gmailr gm_mime gm_to gm_subject gm_html_body gm_create_draft gm_send_message gm_cc
+#' @keywords internal
 mm_send_mail <- function(to, body, subject, cc = NULL, draft = FALSE, 
                          test = Sys.getenv("mailmerge_test", FALSE)) {
   if (missing(subject) || is.null(subject)) stop("Provide subject line")
@@ -159,6 +162,7 @@ as_html <- function(x, standalone = TRUE) { # nocov start
 #' @export
 #' 
 #' @importFrom rstudioapi viewer
+#' @keywords internal
 #'
 in_viewer <- function(x){ # nocov start
   

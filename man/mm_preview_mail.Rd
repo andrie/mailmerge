@@ -21,3 +21,4 @@ HTML text
 \description{
 Preview message in viewer pane.
 }
+\keyword{internal}

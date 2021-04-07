@@ -7,10 +7,10 @@
 mm_read_message_googledoc(id)
 }
 \arguments{
-\item{id}{Unique Google Drive identifier}
+\item{id}{Unique Google Drive identifier, passed to \link[googledrive:drive_download]{googledrive::drive_download}}
 }
 \value{
-A list with components \code{yaml} and \code{body}
+A list of character strings
 }
 \description{
 You can use this to construct the \code{message} argument of \code{\link[=mail_merge]{mail_merge()}}.
