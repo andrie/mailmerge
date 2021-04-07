@@ -47,3 +47,10 @@ remotes::install_github("andrie/mailmerge")
 
 ```{r child="man/fragments/intro_example.Rmd"}
 ```
+
+
+<center>
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics(here::here("man/figures/mail-merge.gif"), dpi = 300)
+```
+</center>

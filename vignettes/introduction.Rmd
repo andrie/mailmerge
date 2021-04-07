@@ -26,3 +26,9 @@ library(mailmerge)
 
 ```{r child="../man/fragments/intro_example.Rmd"}
 ```
+
+<center>
+```{r, echo=FALSE}
+knitr::include_graphics("../man/figures/mail-merge.gif")
+```
+</center>

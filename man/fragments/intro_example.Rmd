@@ -1,18 +1,33 @@
-```{r echo=FALSE, cache=FALSE}
-knitr::read_chunk(
-  system.file("examples/example_mail_merge.R", package = "mailmerge")
-)
-```
-
 
 Construct a data frame with the content you want to merge into your email:
 
 ```{r input-data}
+dat <-  data.frame(
+  email      = c("friend@example.com", "foe@example.com"),
+  first_name = c("friend", "foe"),
+  thing      = c("something good", "something bad"),
+  stringsAsFactors = FALSE
+)
+
 ```
 
 Write the text of your email as a R markdown document. You can add the subject line in the yaml header.  Use `{}` braces inside the email to refer to the data inside your data frame.  Expressions inside these braces will be encoded by the `glue::glue_data()` function (See https://glue.tidyverse.org/).
 
 ```{r markdown-message}
+msg <- '
+---
+subject: "**Hello, {first_name}**"
+---
+
+Hi, **{first_name}**
+
+I am writing to tell you about **{thing}**.
+
+{if (first_name == "friend") "Regards" else ""}
+
+
+Me
+'
 ```
 
 Then you can use `mail_merge()` to embed the content of your data frame into the email message.  By default the email will be shown in a preview window (in the RStudio viewer pane, if you use RStudio).
@@ -23,15 +38,18 @@ To send the message, use `send = "draft"` (to save in your gmail drafts folder) 
 
 ```{r library}
 
-library(mailmerge)
+# library(mailmerge)
 library(gmailr, quietly = TRUE)
 ```
 
 ```{r mail-merge}
+dat %>% 
+  mail_merge(msg)
+
+if (interactive()) {
+  dat %>%
+    mail_merge(msg) %>%
+    print()
+}
 ```
 
-<center>
-```{r, echo=FALSE}
-knitr::include_graphics(here::here("man/figures/mail-merge.gif"))
-```
-</center>

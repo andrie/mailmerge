@@ -110,5 +110,5 @@ if (interactive()) {
 ```
 
 <center>
-<img src="C:/Users/apdev/Documents/github/R-packages/maintainer/mailmerge/mailmerge/man/figures/mail-merge.gif" width="100%" />
+<img src="C:/Users/apdev/Documents/github/R-packages/maintainer/mailmerge/mailmerge/man/figures/mail-merge.gif" width="80%" />
 </center>

@@ -43,6 +43,3 @@ if (interactive()) {
     mail_merge(msg) %>%
     preview_mailmerge()
 }
-
-
-
