@@ -86,15 +86,7 @@ folder) or `send = "immediately"` to send the mail immediately.
 
 ``` r
 library(mailmerge)
-library(gmailr, quietly = TRUE)
-#> 
-#> Attaching package: 'gmailr'
-#> The following object is masked from 'package:utils':
-#> 
-#>     history
-#> The following objects are masked from 'package:base':
-#> 
-#>     body, date, labels, message
+library(gmailr, quietly = TRUE, warn.conflicts = FALSE)
 ```
 
 ``` r
@@ -110,5 +102,5 @@ if (interactive()) {
 ```
 
 <center>
-<img src="C:/Users/apdev/Documents/github/R-packages/maintainer/mailmerge/mailmerge/man/figures/mail-merge.gif" width="80%" />
+<img src="man/figures/mail-merge.gif" width="80%" />
 </center>

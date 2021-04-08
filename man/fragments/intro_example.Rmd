@@ -38,8 +38,8 @@ To send the message, use `send = "draft"` (to save in your gmail drafts folder) 
 
 ```{r library}
 
-# library(mailmerge)
-library(gmailr, quietly = TRUE)
+library(mailmerge)
+library(gmailr, quietly = TRUE, warn.conflicts = FALSE)
 ```
 
 ```{r mail-merge}

@@ -54,7 +54,6 @@ test_that("send mail from pre-imported dat", {
   
   z <- mail_merge(dat, tf, send = "preview")
   
-  
   expect_is(z, "mailmerge_preview")
   expect_true(grepl(dat$email[1], z[[1]], fixed = TRUE))
   expect_true(grepl(dat$email[2], z[[2]], fixed = TRUE))

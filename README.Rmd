@@ -39,7 +39,7 @@ install.packages("mailmerge")
 
 Install the dev version from https://github.com/andrie/mailmerge
 
-``` r
+```r
 remotes::install_github("andrie/mailmerge")
 ```
 
@@ -51,6 +51,6 @@ remotes::install_github("andrie/mailmerge")
 
 <center>
 ```{r, echo=FALSE, out.width="80%"}
-knitr::include_graphics(here::here("man/figures/mail-merge.gif"), dpi = 300)
+knitr::include_graphics("man/figures/mail-merge.gif")
 ```
 </center>
