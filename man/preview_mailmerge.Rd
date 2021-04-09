@@ -7,13 +7,13 @@
 preview_mailmerge(x)
 }
 \arguments{
-\item{x}{mailmerge_preview object}
+\item{x}{mailmerge_preview object, from \link{mail_merge}}
 }
 \value{
 A 'shiny' gadget, see also \link[shiny:runGadget]{shiny::runGadget}
 }
 \description{
-Preview mailmerge as shiny gadget in RStudio preview pane.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }
 \examples{
 ## ---- input-data --------------------------------------------------------
@@ -54,4 +54,7 @@ if (interactive()) {
 
 
 
+}
+\seealso{
+\link{mail_merge}
 }

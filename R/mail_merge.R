@@ -1,10 +1,15 @@
 #' Merges data into an email and send.
 #'
+#' @description 
+#' 
+#' `r lifecycle::badge("experimental")`
+#' 
 #' Merges columns from a data frame into a markdown document using the
 #' [glue::glue_data()] function. The markdown can contain a yaml header for
 #' subject and cc line.
 #' 
 #' Note that only 'gmail' is supported at the moment, via [gmailr::gm_send_message]
+#' 
 #'
 #' @param data A data frame or `tibble` with all the columns that should be
 #'   glued into the message. Substitution is performed using
@@ -26,13 +31,13 @@
 #'   If `FALSE` asks for confirmation before sending.
 #'
 #' @param sleep_preview If `send == "preview"` the number of seconds to sleep
-#'   between each preview.
+#'   between each preview. See also [preview_mailmerge]
 #'
 #' @param sleep_send If `send == "immediately"` the number of seconds to sleep between
 #'   each email send (to prevent gmail API 500 errors).
 #'
-#' @export
 #' @importFrom purrr map pmap
+#' @export
 #'
 #' @return Returns a list for every message, consisting of:
 #' * `msg`: The message in `mime` format
@@ -41,6 +46,8 @@
 #' * `success`: TRUE if the message was sent successfully
 #'   
 #' @example inst/examples/example_mail_merge.R
+#' 
+#' @seealso [preview_mailmerge]
 #'   
 mail_merge <- function(data, message, to_col = "email", send = c("preview", "draft", "immediately"),
                        confirm = FALSE, 

@@ -4,10 +4,10 @@
 #' 
 #' @param txt A file in markdown format
 #' 
-#' @return A list with components `yaml` and `body`
 #' @importFrom rmarkdown yaml_front_matter
 #' @importFrom fs file_exists
 #' @export
+#' @return A list with components `yaml` and `body`
 #' 
 #' @family parsing functions
 mm_read_message <- function(txt) {

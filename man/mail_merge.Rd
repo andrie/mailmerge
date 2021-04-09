@@ -37,7 +37,7 @@ address to send the message to.}
 If \code{FALSE} asks for confirmation before sending.}
 
 \item{sleep_preview}{If \code{send == "preview"} the number of seconds to sleep
-between each preview.}
+between each preview. See also \link{preview_mailmerge}}
 
 \item{sleep_send}{If \code{send == "immediately"} the number of seconds to sleep between
 each email send (to prevent gmail API 500 errors).}
@@ -52,11 +52,12 @@ Returns a list for every message, consisting of:
 }
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 Merges columns from a data frame into a markdown document using the
 \code{\link[glue:glue]{glue::glue_data()}} function. The markdown can contain a yaml header for
 subject and cc line.
-}
-\details{
+
 Note that only 'gmail' is supported at the moment, via \link[gmailr:gm_send_message]{gmailr::gm_send_message}
 }
 \examples{
@@ -105,4 +106,7 @@ if (interactive()) {
     mail_merge(msg) \%>\%
     preview_mailmerge()
 }
+}
+\seealso{
+\link{preview_mailmerge}
 }

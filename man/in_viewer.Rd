@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{in_viewer}
 \alias{in_viewer}
-\title{Display email message in RStudio viewer pane}
+\title{Display email message in RStudio viewer pane.}
 \usage{
 in_viewer(x)
 }
@@ -10,9 +10,9 @@ in_viewer(x)
 \item{x}{message}
 }
 \value{
-opens the viewer pane and displays message
+An \link[rstudioapi:viewer]{rstudioapi::viewer} object. Called for the side effect of opening the viewer pane and displays message
 }
 \description{
-Display email message in RStudio viewer pane
+Only opens the viewer pane if interactive and RStudio is the IDE, otherwise returns the input invisibly.
 }
 \keyword{internal}

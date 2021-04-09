@@ -32,9 +32,9 @@ download_googledoc <- function(id, file){
 #' @inheritParams mm_read_googledoc
 #' @inherit mm_read_message
 #'
-#' @export
 #' 
 #' @family parsing functions
+#' @export
 #' @return A list of character strings
 #' 
 #'

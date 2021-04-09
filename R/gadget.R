@@ -3,13 +3,19 @@
 
 #' Preview mailmerge as shiny gadget in RStudio preview pane.
 #' 
-#' @param x mailmerge_preview object
+#' @description 
+#' 
+#' `r lifecycle::badge("experimental")`
+#' 
+#' @param x mailmerge_preview object, from [mail_merge]
 #' 
 #' @importFrom miniUI miniPage gadgetTitleBar miniContentPanel
 #' @importFrom shiny numericInput htmlOutput reactive observeEvent runGadget stopApp
 #' @example inst/examples/example_shiny_gadget.R
 #' @export
 #' @return A 'shiny' gadget, see also [shiny::runGadget]
+#' 
+#' @seealso [mail_merge]
 #' 
 preview_mailmerge <- function(x) {
   

@@ -154,12 +154,14 @@ as_html <- function(x, standalone = TRUE) { # nocov start
 } # nocov end
 
 
-#' Display email message in RStudio viewer pane
+#' Display email message in RStudio viewer pane.
+#' 
+#' Only opens the viewer pane if interactive and RStudio is the IDE, otherwise returns the input invisibly.
 #'
 #' @param x message
 #'
-#' @return opens the viewer pane and displays message
 #' @export
+#' @return An [rstudioapi::viewer] object. Called for the side effect of opening the viewer pane and displays message
 #' 
 #' @importFrom rstudioapi viewer
 #' @keywords internal
@@ -171,6 +173,8 @@ in_viewer <- function(x){ # nocov start
     html <- tempfile(fileext = ".html")
     writeLines(z, con = html)
     rstudioapi::viewer(html)
+  } else {
+    invisible(x)
   }
 } #nocov end
 

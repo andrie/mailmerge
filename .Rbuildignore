@@ -12,3 +12,6 @@ scripts/*
 ^\.github$
 .covrignore
 ^cran-comments\.md$
+^CRAN-RELEASE$
+^doc$
+^Meta$

@@ -1,3 +1,10 @@
+## Fixes CRAN review comments
+
+During CRAN review, two issues were highlight, both are now fixed:
+
+* Use non-directional quote in the DESCRIPTION file
+* Document \value for pipe.Rd
+
 ## Test environments
 
 * local R installation, R 4.0.3
