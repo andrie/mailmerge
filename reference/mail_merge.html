@@ -47,9 +47,11 @@
 
 
 <meta property="og:title" content="Merges data into an email and send. — mail_merge" />
-<meta property="og:description" content="Merges columns from a data frame into a markdown document using the
+<meta property="og:description" content="
+Merges columns from a data frame into a markdown document using the
 glue::glue_data() function. The markdown can contain a yaml header for
-subject and cc line." />
+subject and cc line.
+Note that only 'gmail' is supported at the moment, via gmailr::gm_send_message" />
 <meta property="og:image" content="/logo.svg" />
 
 
@@ -144,9 +146,11 @@ subject and cc line." />
     </div>
 
     <div class="ref-description">
-    <p>Merges columns from a data frame into a markdown document using the
+    <p><a href='https://lifecycle.r-lib.org/articles/stages.html#experimental'><img src='figures/lifecycle-experimental.svg' alt='[Experimental]' /></a></p>
+<p>Merges columns from a data frame into a markdown document using the
 <code><a href='https://glue.tidyverse.org/reference/glue.html'>glue::glue_data()</a></code> function. The markdown can contain a yaml header for
 subject and cc line.</p>
+<p>Note that only 'gmail' is supported at the moment, via <a href='https://rdrr.io/pkg/gmailr/man/gm_send_message.html'>gmailr::gm_send_message</a></p>
     </div>
 
     <pre class="usage"><span class='fu'>mail_merge</span><span class='op'>(</span>
@@ -195,7 +199,7 @@ If <code>FALSE</code> asks for confirmation before sending.</p></td>
     <tr>
       <th>sleep_preview</th>
       <td><p>If <code>send == "preview"</code> the number of seconds to sleep
-between each preview.</p></td>
+between each preview. See also <a href='preview_mailmerge.html'>preview_mailmerge</a></p></td>
     </tr>
     <tr>
       <th>sleep_send</th>
@@ -213,9 +217,9 @@ each email send (to prevent gmail API 500 errors).</p></td>
 <li><p><code>success</code>: TRUE if the message was sent successfully</p></li>
 </ul>
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Note that only 'gmail' is supported at the moment, via <a href='https://rdrr.io/pkg/gmailr/man/gm_send_message.html'>gmailr::gm_send_message</a></p>
+    <div class='dont-index'><p><a href='preview_mailmerge.html'>preview_mailmerge</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## ---- input-data --------------------------------------------------------</span>
