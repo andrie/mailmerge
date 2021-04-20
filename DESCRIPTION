@@ -13,7 +13,7 @@ Description: Mail merge using markdown documents and gmail. With
     preview the email in the RStudio viewer pane, and send (draft) email
     using 'gmailr'.
 License: MIT + file LICENSE
-URL: https://github.com/andrie/mailmerge
+URL: https://andrie.github.io/mailmerge/, https://github.com/andrie/mailmerge
 BugReports: https://github.com/andrie/mailmerge/issues
 Depends:
     R (>= 3.3)
