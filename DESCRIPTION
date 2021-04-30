@@ -1,6 +1,6 @@
 Package: mailmerge
 Title: Mail Merge Using R Markdown Documents and 'gmailr'
-Version: 0.2.0
+Version: 0.2.0.9000
 Authors@R: 
     person(given = "Andrie",
            family = "de Vries",
@@ -39,7 +39,8 @@ Suggests:
     covr,
     knitr,
     testthat (>= 2.1.0),
-    here
+    here,
+    mockery
 VignetteBuilder: knitr
 RdMacros: 
     lifecycle

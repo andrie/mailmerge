@@ -62,7 +62,12 @@ mail_merge <- function(data, message, to_col = "email", send = c("preview", "dra
   preview <- identical(send, "preview")
   draft   <- identical(send, "draft")
   
-  if (!gmailr::gm_has_token()) warning("You must authenticate with gmailr first.  Use `gmailr::gm_auth()")
+  if (!gmailr::gm_has_token()) {
+    warning(
+      "You must authenticate with gmailr first.  Use `gmailr::gm_auth()", 
+      call. = FALSE
+    )
+  }
   
   if(nrow(data) == 0) {
     warning("nothing to email")
