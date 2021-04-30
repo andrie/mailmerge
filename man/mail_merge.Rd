@@ -58,7 +58,10 @@ Merges columns from a data frame into a markdown document using the
 \code{\link[glue:glue]{glue::glue_data()}} function. The markdown can contain a yaml header for
 subject and cc line.
 
-Note that only 'gmail' is supported at the moment, via \link[gmailr:gm_send_message]{gmailr::gm_send_message}
+Note that only 'gmail' is supported at the moment, via \link[gmailr:gm_send_message]{gmailr::gm_send_message}.
+
+Before using \code{mail_merge()}, you must be authenticated to the gmail service.
+Use \code{\link[gmailr:gm_auth]{gmailr::gm_auth()}} to authenticate prior to starting the mail merge.
 }
 \examples{
 ## ---- input-data --------------------------------------------------------
