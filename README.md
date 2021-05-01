@@ -40,6 +40,14 @@ Install the dev version from <https://github.com/andrie/mailmerge>
 remotes::install_github("andrie/mailmerge")
 ```
 
+## Setup
+
+At the moment only gmail is supported as the email back-end, using the
+`gmailr` package (<https://github.com/r-lib/gmailr>).
+
+Before you use `mail_merge()` it’s important to authenticate against the
+gmail service, and you should use `gmailr::gm_auth()` to do this.
+
 ## Example
 
 Construct a data frame with the content you want to merge into your
@@ -87,6 +95,12 @@ folder) or `send = "immediately"` to send the mail immediately.
 ``` r
 library(mailmerge)
 library(gmailr, quietly = TRUE, warn.conflicts = FALSE)
+
+if (interactive()) {
+  # Note: you should always authenticate. The 'interactive()` condition only 
+  # prevents execution on the CRAN servers
+  gm_auth()
+}
 ```
 
 ``` r

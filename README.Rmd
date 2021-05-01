@@ -43,6 +43,12 @@ Install the dev version from https://github.com/andrie/mailmerge
 remotes::install_github("andrie/mailmerge")
 ```
 
+## Setup
+
+At the moment only gmail is supported as the email back-end, using the `gmailr` package (https://github.com/r-lib/gmailr).
+
+Before you use `mail_merge()` it's important to authenticate against the gmail service, and you should use `gmailr::gm_auth()` to do this.
+
 ## Example
 
 ```{r child="man/fragments/intro_example.Rmd"}
