@@ -51,7 +51,9 @@
 Merges columns from a data frame into a markdown document using the
 glue::glue_data() function. The markdown can contain a yaml header for
 subject and cc line.
-Note that only 'gmail' is supported at the moment, via gmailr::gm_send_message" />
+Note that only 'gmail' is supported at the moment, via gmailr::gm_send_message.
+Before using mail_merge(), you must be authenticated to the gmail service.
+Use gmailr::gm_auth() to authenticate prior to starting the mail merge." />
 <meta property="og:image" content="https://andrie.github.io/mailmerge/logo.svg" />
 
 
@@ -95,7 +97,7 @@ Note that only 'gmail' is supported at the moment, via gmailr::gm_send_message" 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mailmerge</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
 
@@ -150,7 +152,9 @@ Note that only 'gmail' is supported at the moment, via gmailr::gm_send_message" 
 <p>Merges columns from a data frame into a markdown document using the
 <code><a href='https://glue.tidyverse.org/reference/glue.html'>glue::glue_data()</a></code> function. The markdown can contain a yaml header for
 subject and cc line.</p>
-<p>Note that only 'gmail' is supported at the moment, via <a href='https://rdrr.io/pkg/gmailr/man/gm_send_message.html'>gmailr::gm_send_message</a></p>
+<p>Note that only 'gmail' is supported at the moment, via <a href='https://rdrr.io/pkg/gmailr/man/gm_send_message.html'>gmailr::gm_send_message</a>.</p>
+<p>Before using <code>mail_merge()</code>, you must be authenticated to the gmail service.
+Use <code><a href='https://rdrr.io/pkg/gmailr/man/gm_auth.html'>gmailr::gm_auth()</a></code> to authenticate prior to starting the mail merge.</p>
     </div>
 
     <pre class="usage"><span class='fu'>mail_merge</span><span class='op'>(</span>
@@ -251,20 +255,20 @@ Me
 
 <span class='co'>## ---- mail-merge --------------------------------------------------------</span>
 
-<span class='va'>dat</span> <span class='op'>%&gt;%</span> 
+<span class='va'>dat</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span> 
   <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Sent preview to viewer</span></div><div class='input'>
+</div><div class='co'>#&gt; Sent preview to viewer</div><div class='input'>
 <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='va'>dat</span> <span class='op'>%&gt;%</span>
-    <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='va'>dat</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span>
+    <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span>
     <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>}</span>
 
 <span class='co'>## ---- display shiny gadget ----------------------------------------------</span>
 
 <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='va'>dat</span> <span class='op'>%&gt;%</span>
-    <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='va'>dat</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span>
+    <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span>
     <span class='fu'><a href='preview_mailmerge.html'>preview_mailmerge</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>

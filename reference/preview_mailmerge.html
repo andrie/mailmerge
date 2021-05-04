@@ -91,7 +91,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mailmerge</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
 
@@ -195,8 +195,8 @@ Me
 <span class='co'>## ---- display shiny gadget ----------------------------------------------</span>
 
 <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='va'>dat</span> <span class='op'>%&gt;%</span>
-    <span class='fu'><a href='mail_merge.html'>mail_merge</a></span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='va'>dat</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span>
+    <span class='fu'><a href='mail_merge.html'>mail_merge</a></span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span>
     <span class='fu'>preview_mailmerge</span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>}</span>
 
