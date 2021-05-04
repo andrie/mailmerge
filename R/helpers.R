@@ -90,44 +90,45 @@ mm_send_mail <- function(to, body, subject, cc = NULL, draft = FALSE,
     )
   
   test <- (test == "TRUE") | isTRUE(test)
-  z <- if (!test) {
-    tryCatch({
-      if (draft) {
-        msg %>% 
-          gm_create_draft()
-      } else {
-        msg %>%
-          gm_send_message()
-      }
-    },
-    error = function(e) e
-    )
-  }
   if(test) {
-    list(
-      msg = msg,
-      id = NA,
-      type = "test",
-      success = NA
-    )
-  } else {
-    if (inherits(z, "error")) {
+    return(
       list(
         msg = msg,
         id = NA,
-        type = NA,
-        success = FALSE
+        type = "test",
+        success = NA
       )
-      
+    )
+  }
+  z <- tryCatch({
+    if (draft) {
+      msg %>% 
+        gm_create_draft()
     } else {
-      list(
-        msg = msg,
-        id = z$id,
-        type = z$labelIds[[1]],
-        success = TRUE
-      )
-        
+      msg %>%
+        gm_send_message()
     }
+  },
+  error = function(e) e
+  )
+  
+  if (inherits(z, "error")) {
+    warning("From gmailr: ", z$message, call. = FALSE)
+    list(
+      msg = msg,
+      id = NA,
+      type = NA,
+      success = FALSE
+    )
+    
+  } else {
+    list(
+      msg = msg,
+      id = z$id,
+      type = z$labelIds[[1]],
+      success = TRUE
+    )
+    
   }
 }
 

@@ -8,7 +8,10 @@
 #' [glue::glue_data()] function. The markdown can contain a yaml header for
 #' subject and cc line.
 #' 
-#' Note that only 'gmail' is supported at the moment, via [gmailr::gm_send_message]
+#' Note that only 'gmail' is supported at the moment, via [gmailr::gm_send_message].
+#' 
+#' Before using `mail_merge()`, you must be authenticated to the gmail service. 
+#' Use [gmailr::gm_auth()] to authenticate prior to starting the mail merge.
 #' 
 #'
 #' @param data A data frame or `tibble` with all the columns that should be
@@ -58,6 +61,13 @@ mail_merge <- function(data, message, to_col = "email", send = c("preview", "dra
   
   preview <- identical(send, "preview")
   draft   <- identical(send, "draft")
+  
+  if (send != "preview" && !gmailr::gm_has_token()) {
+    stop(
+      "You must authenticate with gmailr first.  Use `gmailr::gm_auth()", 
+      call. = FALSE
+    )
+  }
   
   if(nrow(data) == 0) {
     warning("nothing to email")

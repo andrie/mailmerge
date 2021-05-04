@@ -27,6 +27,8 @@ Me
 test_that("send mail from pre-imported dat", {
   Sys.setenv(mailmerge_test = TRUE)
   
+  mockery::stub(mail_merge, "gmailr::gm_has_token", TRUE)
+  
   to      <- "test@example.com"
   body    <- "hello world"
   subject <- "subject"
