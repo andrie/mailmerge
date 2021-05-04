@@ -73,12 +73,20 @@ mail_merge <- function(data, message, to_col = "email", send = c("preview", "dra
     warning("nothing to email")
     return(invisible(data))
   }
-  if(is.null(data[[to_col]])) stop("'data' must contain an 'email' column, or specify a 'to_col'")
+  
+  if(is.null(data[[to_col]])) {
+    stop("'data' must contain an 'email' column, or specify a 'to_col'")
+  }
+  
   
   msg <- mm_read_message(message)
   
   if(!preview && !confirm) {
-    yesno("Send ", nrow(data), " emails?")
+    msg <- paste0("Send ", nrow(data), " emails (", send, ")?")
+    cat(msg)
+    if (yesno()) {
+      return(invisible())
+    }
   }
   
   z <- data %>%
