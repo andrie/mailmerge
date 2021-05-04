@@ -40,7 +40,8 @@ Suggests:
     knitr,
     testthat (>= 2.1.0),
     here,
-    mockery
+    mockery,
+    readr
 VignetteBuilder: knitr
 RdMacros: 
     lifecycle

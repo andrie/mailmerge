@@ -22,6 +22,7 @@ The main function in this package is \code{\link[=mail_merge]{mail_merge()}}
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://andrie.github.io/mailmerge/}
   \item \url{https://github.com/andrie/mailmerge}
   \item Report bugs at \url{https://github.com/andrie/mailmerge/issues}
 }

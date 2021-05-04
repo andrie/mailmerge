@@ -106,11 +106,7 @@ mail_merge <- function(data, message, to_col = "email", send = c("preview", "dra
         do.call(mm_preview_mail, args)
       } else {
         Sys.sleep(sleep_send)
-        if (draft) {
-          do.call(mm_send_draft, append(args, list(draft = TRUE)))
-        } else {
-          do.call(mm_send_mail, append(args, list(draft = FALSE)))
-        }
+          do.call(mm_send_draft, append(args, list(draft = draft)))
       }
     })
   
