@@ -102,14 +102,11 @@ mm_send_mail <- function(to, body, subject, cc = NULL, draft = FALSE,
   }
   z <- tryCatch({
     if (draft) {
-      msg %>% 
-        gm_create_draft()
+      gmailr::gm_create_draft(msg)
     } else {
-      msg %>%
-        gm_send_message()
+      gmailr::gm_send_message(msg)
     }
-  },
-  error = function(e) e
+  }, error = function(e) e
   )
   
   if (inherits(z, "error")) {

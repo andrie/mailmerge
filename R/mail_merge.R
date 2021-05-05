@@ -73,12 +73,20 @@ mail_merge <- function(data, message, to_col = "email", send = c("preview", "dra
     warning("nothing to email")
     return(invisible(data))
   }
-  if(is.null(data[[to_col]])) stop("'data' must contain an 'email' column, or specify a 'to_col'")
+  
+  if(is.null(data[[to_col]])) {
+    stop("'data' must contain an 'email' column, or specify a 'to_col'")
+  }
+  
   
   msg <- mm_read_message(message)
   
   if(!preview && !confirm) {
-    yesno("Send ", nrow(data), " emails?")
+    msg <- paste0("Send ", nrow(data), " emails (", send, ")?")
+    cat(msg)
+    if (yesno()) {
+      return(invisible())
+    }
   }
   
   z <- data %>%
@@ -98,25 +106,26 @@ mail_merge <- function(data, message, to_col = "email", send = c("preview", "dra
         do.call(mm_preview_mail, args)
       } else {
         Sys.sleep(sleep_send)
+          args <- append(args, list(draft = draft))
         if (draft) {
-          do.call(mm_send_draft, append(args, list(draft = TRUE)))
+          do.call(mm_send_draft, args)
         } else {
-          do.call(mm_send_mail, append(args, list(draft = FALSE)))
+          do.call(mm_send_mail, args)
         }
       }
     })
   
-  n_messages <- length(z)
   
   if (preview) {
     base::message("Sent preview to viewer")
     class(z) <- "mailmerge_preview"
     attr(z, "sleep") <- sleep_preview
   } else {
+    n_messages <- vapply(z, function(x) isTRUE(x$success), FUN.VALUE = logical(1)) %>% sum()
     if (draft) {
       base::message("Sent ", n_messages, " messages to your draft folder")
     } else {
-    base::message("Sent ", n_messages, " messages to email")
+      base::message("Sent ", n_messages, " messages to email")
     }
   }
   z
