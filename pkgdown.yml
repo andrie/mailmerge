@@ -3,7 +3,7 @@ pkgdown: 1.6.1.9001
 pkgdown_sha: e858a19f9a69184aa5b56b166ef1d198251885f4
 articles:
   introduction: introduction.html
-last_built: 2021-05-05T07:34Z
+last_built: 2021-05-05T11:15Z
 urls:
   reference: https://andrie.github.io/mailmerge/reference
   article: https://andrie.github.io/mailmerge/articles
