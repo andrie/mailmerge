@@ -35,15 +35,15 @@ test_that("send mail from pre-imported dat", {
   subject <- "subject"
   
   mm_send_mail(to = to, body = body, subject = subject) %>% 
-    expect_is("list")
+    expect_type("list")
   
   mm_read_message(msg) %>% 
-    expect_is("list")
+    expect_type("list")
   
   z <- dat %>% 
     mail_merge(msg, send = "preview")
   
-  expect_is(z, "mailmerge_preview")
+  expect_s3_class(z, "mailmerge_preview")
   expect_true(grepl(dat$email[1], z[[1]], fixed = TRUE))
   expect_true(grepl(dat$email[2], z[[2]], fixed = TRUE))
   expect_equal(nrow(dat), length(z))
@@ -53,11 +53,11 @@ test_that("send mail from pre-imported dat", {
   writeLines(msg[-(1:3)], con = tf)
   
   mm_read_message(tf) %>% 
-    expect_is("list")
+    expect_type("list")
   
   z <- mail_merge(dat, tf, send = "preview")
   
-  expect_is(z, "mailmerge_preview")
+  expect_s3_class(z, "mailmerge_preview")
   expect_true(grepl(dat$email[1], z[[1]], fixed = TRUE))
   expect_true(grepl(dat$email[2], z[[2]], fixed = TRUE))
   expect_equal(nrow(dat), length(z))
