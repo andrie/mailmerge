@@ -4,7 +4,8 @@
 "email",              "first_name", "thing"
 "friend@example.com", "friend",     "something good"
 "foe@example.com",    "foe",        "something bad"
-')
+', 
+col_types = "ccc")
   
   
   msg <- '
