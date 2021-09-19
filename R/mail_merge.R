@@ -82,8 +82,8 @@ mail_merge <- function(data, message, to_col = "email", send = c("preview", "dra
   msg <- mm_read_message(message)
   
   if(!preview && !confirm) {
-    confirmmsg <- paste0("Send ", nrow(data), " emails (", send, ")?")
-    cat(confirmmsg)
+    confirm_msg <- paste0("Send ", nrow(data), " emails (", send, ")?")
+    cat(confirm_msg)
     if (yesno()) {
       return(invisible())
     }
