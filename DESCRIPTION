@@ -1,17 +1,17 @@
 Package: mailmerge
 Title: Mail Merge Using R Markdown Documents and 'gmailr'
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: 
     person(given = "Andrie",
            family = "de Vries",
            role = c("aut", "cre"),
            email = "apdevries@gmail.com")
-Description: Mail merge using markdown documents and gmail. With
-    this package you can parse markdown documents as the body of email,
-    and the 'yaml' header to specify the subject line of the email.  Any
-    '{}' braces in the email will be encoded with 'glue::glue()'. You can
-    preview the email in the RStudio viewer pane, and send (draft) email
-    using 'gmailr'.
+Description: Perform a mail merge (mass email) using the message defined in 
+    markdown, the recipients in a csv, and gmail as the mailing engine. With 
+    this package you can parse markdown documents as the body of email, and the 
+    'yaml' header to specify the subject line of the email.  Any '{}' braces in 
+    the email will be encoded with 'glue::glue()'. You can preview the email in 
+    the RStudio viewer pane, and send (draft) email using 'gmailr'.
 License: MIT + file LICENSE
 URL: https://andrie.github.io/mailmerge/, https://github.com/andrie/mailmerge
 BugReports: https://github.com/andrie/mailmerge/issues
@@ -47,6 +47,6 @@ RdMacros:
     lifecycle
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Language: en-US
 Config/testthat/edition: 3
