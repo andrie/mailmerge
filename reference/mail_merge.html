@@ -59,8 +59,6 @@ Use gmailr::gm_auth() to authenticate prior to starting the mail merge." />
 
 
 
-
-
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -72,18 +70,9 @@ Use gmailr::gm_auth() to authenticate prior to starting the mail merge." />
 
 
 
-<!-- dependencies from examples -->
-
-
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -97,13 +86,19 @@ Use gmailr::gm_auth() to authenticate prior to starting the mail merge." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mailmerge</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="../index.html">
+    <span class="fas fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -226,53 +221,52 @@ each email send (to prevent gmail API 500 errors).</p></td>
     <div class='dont-index'><p><a href='preview_mailmerge.html'>preview_mailmerge</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'><span class='co'>## ---- input-data --------------------------------------------------------</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>dat</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span></span>
-<span class='r-in'>  email      <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"friend@example.com"</span>, <span class='st'>"foe@example.com"</span><span class='op'>)</span>,</span>
-<span class='r-in'>  first_name <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"friend"</span>, <span class='st'>"foe"</span><span class='op'>)</span>,</span>
-<span class='r-in'>  thing      <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"something good"</span>, <span class='st'>"something bad"</span><span class='op'>)</span>,</span>
-<span class='r-in'>  stringsAsFactors <span class='op'>=</span> <span class='cn'>FALSE</span></span>
-<span class='r-in'><span class='op'>)</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='co'>## ---- markdown-message --------------------------------------------------</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>msg</span> <span class='op'>&lt;-</span> <span class='st'>'</span>
-<span class='r-in'>---</span>
-<span class='r-in'>subject: "**Hello, {first_name}**"</span>
-<span class='r-in'>---</span>
-<span class='r-in'></span>
-<span class='r-in'>Hi, **{first_name}**</span>
-<span class='r-in'></span>
-<span class='r-in'>I am writing to tell you about **{thing}**.</span>
-<span class='r-in'></span>
-<span class='r-in'>{if (first_name == "friend") "Regards" else ""}</span>
-<span class='r-in'></span>
-<span class='r-in'></span>
-<span class='r-in'>Me</span>
-<span class='r-in'>'</span></span>
-<span class='r-in'></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='co'>## ---- mail-merge --------------------------------------------------------</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>dat</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span> </span>
-<span class='r-in'>  <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span></span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> Sent preview to viewer</span>
-<span class='r-in'></span>
-<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
-<span class='r-in'>  <span class='va'>dat</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span></span>
-<span class='r-in'>    <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span></span>
-<span class='r-in'>    <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-in'><span class='op'>}</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='co'>## ---- display shiny gadget ----------------------------------------------</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span></span>
-<span class='r-in'>  <span class='va'>dat</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span></span>
-<span class='r-in'>    <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span></span>
-<span class='r-in'>    <span class='fu'><a href='preview_mailmerge.html'>preview_mailmerge</a></span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-in'><span class='op'>}</span></span>
-</pre>
+    <pre class="examples"><div class='input'><span class='co'>## ---- input-data --------------------------------------------------------</span>
+
+<span class='va'>dat</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  email      <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"friend@example.com"</span>, <span class='st'>"foe@example.com"</span><span class='op'>)</span>,
+  first_name <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"friend"</span>, <span class='st'>"foe"</span><span class='op'>)</span>,
+  thing      <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"something good"</span>, <span class='st'>"something bad"</span><span class='op'>)</span>,
+  stringsAsFactors <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
+
+<span class='co'>## ---- markdown-message --------------------------------------------------</span>
+
+<span class='va'>msg</span> <span class='op'>&lt;-</span> <span class='st'>'
+---
+subject: "**Hello, {first_name}**"
+---
+
+Hi, **{first_name}**
+
+I am writing to tell you about **{thing}**.
+
+{if (first_name == "friend") "Regards" else ""}
+
+
+Me
+'</span>
+
+
+<span class='co'>## ---- mail-merge --------------------------------------------------------</span>
+
+<span class='va'>dat</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Sent preview to viewer</span></div><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>dat</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='co'>## ---- display shiny gadget ----------------------------------------------</span>
+
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>dat</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mail_merge</span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='preview_mailmerge.html'>preview_mailmerge</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -284,11 +278,11 @@ each email send (to prevent gmail API 500 errors).</p></td>
 
       <footer>
       <div class="copyright">
-  <p><p>Developed by Andrie de Vries.</p></p>
+  <p>Developed by Andrie de Vries.</p>
 </div>
 
 <div class="pkgdown">
-  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
@@ -296,8 +290,6 @@ each email send (to prevent gmail API 500 errors).</p></td>
 
   
 
-
-  
 
   </body>
 </html>

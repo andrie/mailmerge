@@ -48,15 +48,13 @@
 
 <meta property="og:title" content="mailmerge: Mail Merge Using R Markdown Documents and 'gmailr' — mailmerge-package" />
 <meta property="og:description" content="
-Mail merge using markdown documents and gmail. With
-    this package you can parse markdown documents as the body of email,
-    and the 'yaml' header to specify the subject line of the email.  Any
-    '' braces in the email will be encoded with 'glue::glue()'. You can
-    preview the email in the RStudio viewer pane, and send (draft) email
-    using 'gmailr'." />
+Perform a mail merge (mass email) using the message defined in 
+    markdown, the recipients in a csv, and gmail as the mailing engine. With 
+    this package you can parse markdown documents as the body of email, and the 
+    'yaml' header to specify the subject line of the email.  Any '' braces in 
+    the email will be encoded with 'glue::glue()'. You can preview the email in 
+    the RStudio viewer pane, and send (draft) email using 'gmailr'." />
 <meta property="og:image" content="https://andrie.github.io/mailmerge/logo.svg" />
-
-
 
 
 
@@ -72,16 +70,9 @@ Mail merge using markdown documents and gmail. With
 
 
 
-
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -95,13 +86,19 @@ Mail merge using markdown documents and gmail. With
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mailmerge</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="../index.html">
+    <span class="fas fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -147,12 +144,12 @@ Mail merge using markdown documents and gmail. With
 
     <div class="ref-description">
     <p><img src='figures/logo.png' align='right' alt='logo' width='120' /></p>
-<p>Mail merge using markdown documents and gmail. With
-    this package you can parse markdown documents as the body of email,
-    and the 'yaml' header to specify the subject line of the email.  Any
-    '' braces in the email will be encoded with 'glue::glue()'. You can
-    preview the email in the RStudio viewer pane, and send (draft) email
-    using 'gmailr'.</p>
+<p>Perform a mail merge (mass email) using the message defined in 
+    markdown, the recipients in a csv, and gmail as the mailing engine. With 
+    this package you can parse markdown documents as the body of email, and the 
+    'yaml' header to specify the subject line of the email.  Any '' braces in 
+    the email will be encoded with 'glue::glue()'. You can preview the email in 
+    the RStudio viewer pane, and send (draft) email using 'gmailr'.</p>
     </div>
 
 
@@ -184,11 +181,11 @@ Mail merge using markdown documents and gmail. With
 
       <footer>
       <div class="copyright">
-  <p><p>Developed by Andrie de Vries.</p></p>
+  <p>Developed by Andrie de Vries.</p>
 </div>
 
 <div class="pkgdown">
-  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
@@ -196,8 +193,6 @@ Mail merge using markdown documents and gmail. With
 
   
 
-
-  
 
   </body>
 </html>

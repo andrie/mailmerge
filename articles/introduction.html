@@ -26,8 +26,6 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -40,12 +38,18 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mailmerge</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+<li>
+  <a href="../index.html">
+    <span class="fas fa-home fa-lg"></span>
+     
+  </a>
+</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -67,7 +71,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/andrie/mailmerge/" class="external-link">
+  <a href="https://github.com/andrie/mailmerge/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -88,7 +92,7 @@
       <h1 data-toc-skip>Introduction to mailmerge</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/andrie/mailmerge/blob/master/vignettes/introduction.Rmd" class="external-link"><code>vignettes/introduction.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/andrie/mailmerge/blob/master/vignettes/introduction.Rmd"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
 
     </div>
@@ -99,21 +103,21 @@
 <ul>
 <li>Parse markdown documents as the body of email</li>
 <li>Use the <code>yaml</code> header to specify the subject line of the email</li>
-<li>Use <code>glue</code> to replace <code><a href="https://rdrr.io/r/base/Paren.html" class="external-link">{}</a></code> tags</li>
+<li>Use <code>glue</code> to replace <code>{}</code> tags</li>
 <li>Preview the email in the RStudio viewer pane</li>
 <li>Send email (or saving as draft) using <code>gmailr</code>
 </li>
 </ul>
-<p>Note: Right now, the only supported email back end is <code>gmailr</code> (see <a href="https://gmailr.r-lib.org/" class="external-link uri">https://gmailr.r-lib.org/</a>).</p>
+<p>Note: Right now, the only supported email back end is <code>gmailr</code> (see <a href="https://gmailr.r-lib.org/" class="uri">https://gmailr.r-lib.org/</a>).</p>
 <p>Construct a data frame with the content you want to merge into your email:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>
-  email      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"friend@example.com"</span>, <span class="st">"foe@example.com"</span><span class="op">)</span>,
-  first_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"friend"</span>, <span class="st">"foe"</span><span class="op">)</span>,
-  thing      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"something good"</span>, <span class="st">"something bad"</span><span class="op">)</span>,
+<code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+  email      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"friend@example.com"</span>, <span class="st">"foe@example.com"</span><span class="op">)</span>,
+  first_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"friend"</span>, <span class="st">"foe"</span><span class="op">)</span>,
+  thing      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"something good"</span>, <span class="st">"something bad"</span><span class="op">)</span>,
   stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span></code></pre></div>
-<p>Write the text of your email as a R markdown document. You can add the subject line in the yaml header. Use <code><a href="https://rdrr.io/r/base/Paren.html" class="external-link">{}</a></code> braces inside the email to refer to the data inside your data frame. Expressions inside these braces will be encoded by the <code><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue::glue_data()</a></code> function (See <a href="https://glue.tidyverse.org/" class="external-link uri">https://glue.tidyverse.org/</a>).</p>
+<p>Write the text of your email as a R markdown document. You can add the subject line in the yaml header. Use <code>{}</code> braces inside the email to refer to the data inside your data frame. Expressions inside these braces will be encoded by the <code><a href="https://glue.tidyverse.org/reference/glue.html">glue::glue_data()</a></code> function (See <a href="https://glue.tidyverse.org/" class="uri">https://glue.tidyverse.org/</a>).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">msg</span> <span class="op">&lt;-</span> <span class="st">'
 ---
@@ -132,24 +136,22 @@ Me
 <p>Then you can use <code><a href="../reference/mail_merge.html">mail_merge()</a></code> to embed the content of your data frame into the email message. By default the email will be shown in a preview window (in the RStudio viewer pane, if you use RStudio).</p>
 <p>To send the message, use <code>send = "draft"</code> (to save in your gmail drafts folder) or <code>send = "immediately"</code> to send the mail immediately.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://andrie.github.io/mailmerge/">mailmerge</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/gmailr" class="external-link">gmailr</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://andrie.github.io/mailmerge/">mailmerge</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/gmailr">gmailr</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 
-<span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+<span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
   <span class="co"># Note: you should always authenticate. The 'interactive()` condition only </span>
   <span class="co"># prevents execution on the CRAN servers</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/gmailr/man/gm_auth.html" class="external-link">gm_auth</a></span><span class="op">(</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/gmailr/man/gm_auth.html">gm_auth</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dat</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">dat</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/mail_merge.html">mail_merge</a></span><span class="op">(</span><span class="va">msg</span><span class="op">)</span>
 <span class="co">#&gt; Sent preview to viewer</span>
-
-<span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">dat</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="../reference/mail_merge.html">mail_merge</a></span><span class="op">(</span><span class="va">msg</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="op">)</span>
+<span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">dat</span> <span class="op">%&gt;%</span>
+    <span class="fu"><a href="../reference/mail_merge.html">mail_merge</a></span><span class="op">(</span><span class="va">msg</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <center>
 <img src="../man/figures/mail-merge.gif"><!-- -->
@@ -165,13 +167,11 @@ Me
 
 
       <footer><div class="copyright">
-  <p></p>
-<p>Developed by Andrie de Vries.</p>
+  <p>Developed by Andrie de Vries.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
@@ -179,8 +179,6 @@ Me
 
   
 
-
-  
 
   </body>
 </html>

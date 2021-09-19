@@ -52,8 +52,6 @@
 
 
 
-
-
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -65,16 +63,9 @@
 
 
 
-
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -88,13 +79,19 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mailmerge</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="../index.html">
+    <span class="fas fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -137,16 +134,31 @@
       <small>Source: <a href='https://github.com/andrie/mailmerge/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="mailmerge-022" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.2">
+<a href="#mailmerge-022" class="anchor"></a>mailmerge 0.2.2<small> Unreleased </small>
+</h1>
+<p>Bug fixes</p>
+<ul>
+<li>Fix a bug that prevented interactive confirmation when sending mail (<a href='https://github.com/bcheggeseth'>@bcheggeseth</a>, <a href='https://github.com/andrie/mailmerge/issues/10'>#10</a>)</li>
+</ul>
+</div>
     <div id="mailmerge-021" class="section level1">
 <h1 class="page-header" data-toc-text="0.2.1">
-<a href="#mailmerge-021" class="anchor" aria-hidden="true"></a>mailmerge 0.2.1<small> Unreleased </small></h1>
-<ul><li>Throw error if not authenticated against gmail, and provide better setup instructions to use <code><a href="https://rdrr.io/pkg/gmailr/man/gm_auth.html" class="external-link">gmailr::gm_auth()</a></code>, suggested by <a href='https://github.com/maelle'>@maelle</a> in <a href='https://github.com/andrie/mailmerge/issues/3'>#3</a></li>
-</ul></div>
+<a href="#mailmerge-021" class="anchor"></a>mailmerge 0.2.1<small> 2021-05-11 </small>
+</h1>
+<ul>
+<li>Throw error if not authenticated against gmail, and provide better setup instructions to use <code><a href="https://rdrr.io/pkg/gmailr/man/gm_auth.html">gmailr::gm_auth()</a></code>, suggested by <a href='https://github.com/maelle'>@maelle</a> in <a href='https://github.com/andrie/mailmerge/issues/3'>#3</a></li>
+</ul>
+</div>
     <div id="mailmerge-020" class="section level1">
 <h1 class="page-header" data-toc-text="0.2.0">
-<a href="#mailmerge-020" class="anchor" aria-hidden="true"></a>mailmerge 0.2.0<small> 2021-04-12 </small></h1>
-<ul><li>First release to CRAN</li>
-</ul></div>
+<a href="#mailmerge-020" class="anchor"></a>mailmerge 0.2.0<small> 2021-04-12 </small>
+</h1>
+<ul>
+<li>First release to CRAN</li>
+</ul>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -160,11 +172,11 @@
 
       <footer>
       <div class="copyright">
-  <p><p>Developed by Andrie de Vries.</p></p>
+  <p>Developed by Andrie de Vries.</p>
 </div>
 
 <div class="pkgdown">
-  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
@@ -172,8 +184,6 @@
 
   
 
-
-  
 
   </body>
 </html>
