@@ -1,18 +1,11 @@
-## Fixes CRAN review comments
+## Small updates and bug fixes
 
-During CRAN review, two issues were highlight, both are now fixed:
-
-* Use non-directional quote in the DESCRIPTION file
-* Document \value for pipe.Rd
+No notes or warnings.
 
 ## Test environments
 
-* local R installation, R 4.0.3
-* ubuntu 16.04 (on travis-ci), R 4.0.3
-* win-builder (devel)
+* local R installation, R 4.1.1
+* ubuntu 18.04 (on Github Actions), with R-oldrel-4 through R-devel
+* Windows latest on Github actions
+* MacOS latest on Github actions
 
-## R CMD check results
-
-0 errors | 0 warnings | 1 note
-
-* This is a new release.
