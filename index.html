@@ -19,11 +19,11 @@
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Mail Merge Using R Markdown Documents and gmailr">
 <meta property="og:description" content="Perform a mail merge (mass email) using the message defined in 
-    markdown, the recipients in a csv, and gmail as the mailing engine. With 
-    this package you can parse markdown documents as the body of email, and the 
-    yaml header to specify the subject line of the email.  Any {} braces in 
-    the email will be encoded with glue::glue(). You can preview the email in 
-    the RStudio viewer pane, and send (draft) email using gmailr.">
+    markdown, the recipients in a csv file, and gmail as the mailing engine. 
+    With this package you can parse markdown documents as the body of email, and 
+    the yaml header to specify the subject line of the email.  Any {} braces 
+    in the email will be encoded with glue::glue(). You can preview the email 
+    in the RStudio viewer pane, and send (draft) email using gmailr.">
 <meta property="og:image" content="https://andrie.github.io/mailmerge/logo.svg">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">mailmerge</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2.9000</span>
       </span>
     </div>
 
@@ -167,7 +167,6 @@ Me
 <code class="sourceCode R"><span class="va">dat</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/mail_merge.html">mail_merge</a></span><span class="op">(</span><span class="va">msg</span><span class="op">)</span>
 <span class="co">#&gt; Sent preview to viewer</span>
-
 <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">dat</span> <span class="op">%&gt;%</span>
     <span class="fu"><a href="reference/mail_merge.html">mail_merge</a></span><span class="op">(</span><span class="va">msg</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -209,9 +208,8 @@ Me
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/andrie/mailmerge/actions"><img src="https://github.com/andrie/mailmerge/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://travis-ci.org/andrie/mailmerge"><img src="https://travis-ci.org/andrie/mailmerge.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://codecov.io/gh/andrie/mailmerge?branch=master"><img src="https://codecov.io/gh/andrie/mailmerge/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/andrie/mailmerge/actions"><img src="https://github.com/andrie/mailmerge/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://codecov.io/gh/andrie/mailmerge?branch=main"><img src="https://codecov.io/gh/andrie/mailmerge/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 </ul>
 </div>
