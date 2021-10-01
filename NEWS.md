@@ -1,3 +1,7 @@
+# mailmerge 0.2.3
+ 
+* Use `googledrive::with_drive_quiet()` to comply with `googledrive` 2.0.0
+ 
 # mailmerge 0.2.2
 
 Bug fixes
