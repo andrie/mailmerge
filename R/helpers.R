@@ -15,6 +15,8 @@ glue_mail <- function(data, message) {
   body    <- message$body %>% nulls_to_empty()
   subject <- message$yaml$subject %>% nulls_to_empty()
   cc      <- message$yaml$cc %>% nulls_to_empty() %>% clean_na()
+  
+  cat("cc = ", cc)
 
   subject <- glue_data(data, subject) %>% nulls_to_empty()
   cc      <- glue_data(data, cc) %>% nulls_to_empty()
