@@ -88,7 +88,7 @@ mm_send_mail <- function(to, body, subject, cc = NULL, draft = FALSE,
       commonmark::markdown_html(body)
     )
   
-  if (isFALSE(is.na(cc))) {
+  if (isFALSE(is.na(cc)) && cc != "NA") {
     msg <- msg %>% gm_cc(cc)
   }
   
