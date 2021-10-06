@@ -84,10 +84,13 @@ mm_send_mail <- function(to, body, subject, cc = NULL, draft = FALSE,
   msg <- gm_mime() %>% 
     gm_to(to) %>% 
     gm_subject(subject) %>% 
-    gm_cc(ifelse(!is.na(cc), cc, NULL)) %>% 
     gm_html_body(
       commonmark::markdown_html(body)
     )
+  
+  if (isFALSE(is.na(cc))) {
+    msg <- msg %>% gm_cc(cc)
+  }
   
   test <- (test == "TRUE") | isTRUE(test)
   if(test) {
