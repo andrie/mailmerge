@@ -4,7 +4,9 @@ collapse <- function(...) paste(..., collapse = "\n")
 
 is_rstudio <- function() Sys.getenv("RSTUDIO") == "1" # nocov
 
-nulls_to_empty <- function(x) {if (is.null(x) || length(x) == 0 || x == "NA") x <- ""; return(x) }
+nulls_to_empty <- function(x) {if (is.null(x) || length(x) == 0) x <- ""; return(x) }
+
+clean_na <- function(x) {if (x == "NA") NA else x}
 
 glue_mail <- function(data, message) {
   body    <- message$body %>% nulls_to_empty()
@@ -12,7 +14,7 @@ glue_mail <- function(data, message) {
   cc      <- message$yaml$cc %>% nulls_to_empty()
 
   subject <- glue_data(data, subject) %>% nulls_to_empty()
-  cc      <- glue_data(data, cc) %>% nulls_to_empty()
+  cc      <- glue_data(data, cc) %>% nulls_to_empty() %>% clean_na()
   body    <- glue_data(data, body) %>% nulls_to_empty()
   
   list(
