@@ -102,6 +102,8 @@ mail_merge <- function(data, message, to_col = "email", send = c("preview", "dra
         cc         = glued_data[["cc"]]
       )
       
+      if (args$cc == "NA") args$cc <- NA_character_
+      
       if (preview) {
         do.call(mm_preview_mail, args)
       } else {
