@@ -4,7 +4,7 @@ collapse <- function(...) paste(..., collapse = "\n")
 
 is_rstudio <- function() Sys.getenv("RSTUDIO") == "1" # nocov
 
-nulls_to_empty <- function(x) {if (is.null(x) || length(x) == 0) x <- ""; return(x) }
+nulls_to_empty <- function(x) {if (is.null(x) || length(x) == 0 || x == "NA") x <- ""; return(x) }
 
 glue_mail <- function(data, message) {
   body    <- message$body %>% nulls_to_empty()
