@@ -102,7 +102,7 @@ mail_merge <- function(data, message, to_col = "email", send = c("preview", "dra
         cc         = glued_data[["cc"]]
       )
       
-      cat(cc)
+      cat(args$cc)
       
       if (preview) {
         do.call(mm_preview_mail, args)
