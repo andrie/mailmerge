@@ -6,7 +6,10 @@ is_rstudio <- function() Sys.getenv("RSTUDIO") == "1" # nocov
 
 nulls_to_empty <- function(x) {if (is.null(x) || length(x) == 0) x <- ""; return(x) }
 
-clean_na <- function(x) {if (x == "NA") NA else x}
+clean_na <- function(x) {
+  message("x = ", x)
+  if (x == "NA") NA_character_ else x
+}
 
 glue_mail <- function(data, message) {
   body    <- message$body %>% nulls_to_empty()
