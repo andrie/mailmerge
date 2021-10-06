@@ -7,21 +7,20 @@ is_rstudio <- function() Sys.getenv("RSTUDIO") == "1" # nocov
 nulls_to_empty <- function(x) {if (is.null(x) || length(x) == 0) x <- ""; return(x) }
 
 clean_na <- function(x) {
-  message("x = ", x)
-  if (x == "NA") "" else x
+  if (x == "NA") NA else x
 }
 
 glue_mail <- function(data, message) {
   body    <- message$body %>% nulls_to_empty()
   subject <- message$yaml$subject %>% nulls_to_empty()
-  cc      <- message$yaml$cc %>% nulls_to_empty() %>% clean_na()
+  cc      <- message$yaml$cc %>% nulls_to_empty() 
   
-  cat("cc = ", cc)
 
   subject <- glue_data(data, subject) %>% nulls_to_empty()
-  cc      <- glue_data(data, cc) %>% nulls_to_empty()
+  cc      <- glue_data(data, cc) %>% nulls_to_empty() %>% clean_na()
   body    <- glue_data(data, body) %>% nulls_to_empty()
   
+# browser()
 
   list(
     body = body,
