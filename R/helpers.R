@@ -14,15 +14,13 @@ clean_na <- function(x) {
 glue_mail <- function(data, message) {
   body    <- message$body %>% nulls_to_empty()
   subject <- message$yaml$subject %>% nulls_to_empty()
-  cc      <- message$yaml$cc %>% nulls_to_empty()
+  cc      <- message$yaml$cc %>% nulls_to_empty() %>% clean_na()
 
   subject <- glue_data(data, subject) %>% nulls_to_empty()
-  cc      <- glue_data(data, cc) %>% nulls_to_empty() %>% clean_na()
+  cc      <- glue_data(data, cc) %>% nulls_to_empty()
   body    <- glue_data(data, body) %>% nulls_to_empty()
   
-  message("cc = ", x)
-  
-  
+
   list(
     body = body,
     subject = subject,
