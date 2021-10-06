@@ -8,7 +8,7 @@ nulls_to_empty <- function(x) {if (is.null(x) || length(x) == 0) x <- ""; return
 
 clean_na <- function(x) {
   message("x = ", x)
-  if (x == "NA") NA_character_ else x
+  if (x == "NA") "" else x
 }
 
 glue_mail <- function(data, message) {
