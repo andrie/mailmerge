@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://andrie.github.io/mailmerge/404.html</loc>
+  </url>
+  <url>
+    <loc>https://andrie.github.io/mailmerge/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://andrie.github.io/mailmerge/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://andrie.github.io/mailmerge/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://andrie.github.io/mailmerge/articles/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://andrie.github.io/mailmerge/authors.html</loc>
+  </url>
+  <url>
     <loc>https://andrie.github.io/mailmerge/index.html</loc>
   </url>
   <url>
+    <loc>https://andrie.github.io/mailmerge/news/index.html</loc>
+  </url>
+  <url>
     <loc>https://andrie.github.io/mailmerge/reference/in_viewer.html</loc>
+  </url>
+  <url>
+    <loc>https://andrie.github.io/mailmerge/reference/index.html</loc>
   </url>
   <url>
     <loc>https://andrie.github.io/mailmerge/reference/mail_merge.html</loc>
@@ -38,8 +62,5 @@
   </url>
   <url>
     <loc>https://andrie.github.io/mailmerge/reference/yesno.html</loc>
-  </url>
-  <url>
-    <loc>https://andrie.github.io/mailmerge/articles/introduction.html</loc>
   </url>
 </urlset>
