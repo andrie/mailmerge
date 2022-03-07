@@ -1,11 +1,5 @@
-## Small updates and bug fixes
+## R CMD check results
 
-I'm sorry for the second small update in about 2 weeks, but this fixes some warning that were caused by an update to the `googlesheets` package.
+0 errors | 0 warnings | 0 notes
 
-## Test environments
-
-* local R installation, R 4.1.1
-* Ubuntu 18.04 (on Github Actions), with R-oldrel-4 through R-devel
-* Windows latest on Github actions and win-builder
-* MacOS latest on Github actions
-
+This release fixes some warnings on the CRAN build server.
