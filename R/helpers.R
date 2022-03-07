@@ -6,13 +6,17 @@ is_rstudio <- function() Sys.getenv("RSTUDIO") == "1" # nocov
 
 nulls_to_empty <- function(x) {if (is.null(x) || length(x) == 0) x <- ""; return(x) }
 
+clean_na <- function(x) {
+  if (x == "NA") "" else x
+}
+
 glue_mail <- function(data, message) {
   body    <- message$body %>% nulls_to_empty()
   subject <- message$yaml$subject %>% nulls_to_empty()
-  cc      <- message$yaml$cc %>% nulls_to_empty()
-
+  cc      <- message$yaml$cc %>% nulls_to_empty() 
+  
   subject <- glue_data(data, subject) %>% nulls_to_empty()
-  cc      <- glue_data(data, cc) %>% nulls_to_empty()
+  cc      <- glue_data(data, cc) %>% nulls_to_empty() %>% clean_na()
   body    <- glue_data(data, body) %>% nulls_to_empty()
   
   list(
@@ -84,10 +88,13 @@ mm_send_mail <- function(to, body, subject, cc = NULL, draft = FALSE,
   msg <- gm_mime() %>% 
     gm_to(to) %>% 
     gm_subject(subject) %>% 
-    gm_cc(cc) %>% 
     gm_html_body(
       commonmark::markdown_html(body)
     )
+  
+  if (isFALSE(is.na(cc)) && cc != "NA") {
+    msg <- msg %>% gm_cc(cc)
+  }
   
   test <- (test == "TRUE") | isTRUE(test)
   if(test) {

@@ -1,6 +1,6 @@
 Package: mailmerge
 Title: Mail Merge Using R Markdown Documents and 'gmailr'
-Version: 0.2.3
+Version: 0.2.3.9000
 Authors@R: 
     person(given = "Andrie",
            family = "de Vries",
@@ -23,11 +23,8 @@ Imports:
     rstudioapi,
     googledrive,
     rmarkdown,
-    dplyr,
     glue,
-    googlesheets4,
     magrittr,
-    withr,
     purrr,
     utils,
     fs,
@@ -36,6 +33,7 @@ Imports:
     miniUI
 Suggests: 
     spelling,
+    withr,
     covr,
     knitr,
     testthat (>= 2.1.0),

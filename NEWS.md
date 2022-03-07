@@ -1,3 +1,7 @@
+# mailmerge 0.2.3.9000
+
+* Handle an email where the CC is `N/A`
+
 # mailmerge 0.2.3
  
 * Use `googledrive::with_drive_quiet()` to comply with `googledrive` 2.0.0
