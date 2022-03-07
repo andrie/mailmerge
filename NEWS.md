@@ -1,6 +1,6 @@
-# mailmerge 0.2.3.9000
+# mailmerge 0.2.4
 
-* Handle an email where the CC is `N/A`
+* Handle email where the CC is `N/A`
 
 # mailmerge 0.2.3
  

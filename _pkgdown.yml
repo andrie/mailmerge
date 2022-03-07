@@ -1,5 +1,8 @@
 url: https://andrie.github.io/mailmerge
 
+template:
+  bootstrap: 5
+
 destination: docs
 
 reference:

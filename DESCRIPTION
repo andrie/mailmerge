@@ -1,6 +1,6 @@
 Package: mailmerge
 Title: Mail Merge Using R Markdown Documents and 'gmailr'
-Version: 0.2.3.9000
+Version: 0.2.4
 Authors@R: 
     person(given = "Andrie",
            family = "de Vries",
