@@ -7,7 +7,7 @@
 
 [![R-CMD-check](https://github.com/andrie/mailmerge/workflows/R-CMD-check/badge.svg)](https://github.com/andrie/mailmerge/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/andrie/mailmerge/branch/main/graph/badge.svg)](https://codecov.io/gh/andrie/mailmerge?branch=main)
+coverage](https://app.codecov.io/gh/andrie/mailmerge?branch=main)](https://app.codecov.io/gh/andrie/mailmerge?branch=main)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
@@ -104,6 +104,7 @@ if (interactive()) {
 dat %>% 
   mail_merge(msg)
 #> Sent preview to viewer
+
 if (interactive()) {
   dat %>%
     mail_merge(msg) %>%
