@@ -23,11 +23,8 @@ Imports:
     rstudioapi,
     googledrive,
     rmarkdown,
-    dplyr,
     glue,
-    googlesheets4,
     magrittr,
-    withr,
     purrr,
     utils,
     fs,
@@ -36,6 +33,7 @@ Imports:
     miniUI
 Suggests: 
     spelling,
+    withr,
     covr,
     knitr,
     testthat (>= 2.1.0),
