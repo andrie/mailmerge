@@ -7,7 +7,7 @@
 \alias{mailmerge}
 \title{mailmerge: Mail Merge Using R Markdown Documents and 'gmailr'}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
 Perform a mail merge (mass email) using the message defined in markdown, the recipients in a 'csv' file, and gmail as the mailing engine. With this package you can parse markdown documents as the body of email, and the 'yaml' header to specify the subject line of the email. Any '{}' braces in the email will be encoded with 'glue::glue()'. You can preview the email in the RStudio viewer pane, and send (draft) email using 'gmailr'.
 }

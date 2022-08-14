@@ -1,3 +1,7 @@
+# mailmerge 0.2.5
+
+* Update documentation to conform to HTML5
+
 # mailmerge 0.2.4
 
 * Handle email where the CC is `N/A`

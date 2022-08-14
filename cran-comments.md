@@ -2,4 +2,4 @@
 
 0 errors | 0 warnings | 0 notes
 
-This release fixes some warnings on the CRAN build server.
+This release fixes the HTML5 problems reported on CRAN.
