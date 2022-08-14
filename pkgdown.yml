@@ -1,9 +1,9 @@
 pandoc: 2.7.3
-pkgdown: 2.0.2
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   introduction: introduction.html
-last_built: 2022-03-07T16:31Z
+last_built: 2022-08-14T20:19Z
 urls:
   reference: https://andrie.github.io/mailmerge/reference
   article: https://andrie.github.io/mailmerge/articles
