@@ -3,7 +3,6 @@
 \docType{package}
 \name{mailmerge-package}
 \alias{mailmerge-package}
-\alias{_PACKAGE}
 \alias{mailmerge}
 \title{mailmerge: Mail Merge Using R Markdown Documents and 'gmailr'}
 \description{
