@@ -1,29 +1,32 @@
 
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # mailmerge <img src='man/figures/logo.png' align="right" height="139" />
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/andrie/mailmerge/workflows/R-CMD-check/badge.svg)](https://github.com/andrie/mailmerge/actions)
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![Codecov test
-coverage](https://codecov.io/gh/andrie/mailmerge/branch/main/graph/badge.svg)](https://app.codecov.io/gh/andrie/mailmerge?branch=main)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/mailmerge)](https://CRAN.R-project.org/package=mailmerge)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/mailmerge)](https://www.r-pkg.org/package=miniCRAN)
+[![R-CMD-check](https://github.com/andrie/mailmerge/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andrie/mailmerge/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/andrie/mailmerge/branch/main/graph/badge.svg)](https://app.codecov.io/gh/andrie/mailmerge?branch=main)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 Mail merge from R using markdown documents and gmail.
 
--   Parse markdown documents as the body of email
--   Use the `yaml` header to specify the subject line of the email
--   Use `glue` to replace `{}` tags
--   Preview the email in the RStudio viewer pane
--   Send email (or saving as draft) using `gmailr`
+- Parse markdown documents as the body of email
+- Use the `yaml` header to specify the subject line of the email
+- Use `glue` to replace `{}` tags
+- Preview the email in the RStudio viewer pane
+- Send email (or saving as draft) using `gmailr`
 
 Note: Right now, the only supported email back end is `gmailr` (see
-<https://gmailr.r-lib.org/>).
+https://gmailr.r-lib.org/).
 
 ## Installation
 
@@ -33,7 +36,7 @@ Install the package from CRAN:
 install.packages("mailmerge")
 ```
 
-Install the dev version from <https://github.com/andrie/mailmerge>
+Install the dev version from https://github.com/andrie/mailmerge
 
 ``` r
 remotes::install_github("andrie/mailmerge")
@@ -42,7 +45,7 @@ remotes::install_github("andrie/mailmerge")
 ## Setup
 
 At the moment only gmail is supported as the email back-end, using the
-`gmailr` package (<https://github.com/r-lib/gmailr>).
+`gmailr` package (https://github.com/r-lib/gmailr).
 
 Before you use `mail_merge()` it’s important to authenticate against the
 gmail service, and you should use `gmailr::gm_auth()` to do this.
@@ -65,7 +68,7 @@ Write the text of your email as a R markdown document. You can add the
 subject line in the yaml header. Use `{}` braces inside the email to
 refer to the data inside your data frame. Expressions inside these
 braces will be encoded by the `glue::glue_data()` function (See
-<https://glue.tidyverse.org/>).
+https://glue.tidyverse.org/).
 
 ``` r
 msg <- '
@@ -92,6 +95,7 @@ To send the message, use `send = "draft"` (to save in your gmail drafts
 folder) or `send = "immediately"` to send the mail immediately.
 
 ``` r
+
 library(mailmerge)
 library(gmailr, quietly = TRUE, warn.conflicts = FALSE)
 
@@ -115,5 +119,7 @@ if (interactive()) {
 ```
 
 <center>
-<img src="man/figures/mail-merge.gif" width="80%" />
+
+<img src="man/figures/mail-merge.gif" style="width:80.0%" />
+
 </center>
